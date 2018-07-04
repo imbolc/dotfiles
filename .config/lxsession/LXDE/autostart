@@ -1,0 +1,19 @@
+# ThinkPad trackpoint speed
+# sudo sh -c 'echo -n 255 > /sys/devices/platform/i8042/serio1/serio2/speed'
+# sudo sh -c 'echo -n 255 > /sys/devices/platform/i8042/serio1/serio2/sensitivity'
+
+# disable black screen
+@xset s noblank
+@xset s off
+@xset -dpms
+
+
+@lxpanel --profile LXDE
+@pcmanfm --desktop --profile LXDE
+# @xscreensaver -no-splash
+
+terminator
+chromium
+telegram
+keepassx
+anki

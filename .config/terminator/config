@@ -1,0 +1,31 @@
+[global_config]
+  borderless = True
+  broadcast_default = off
+  dbus = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
+  tab_position = right
+  title_font = Monospace 12
+  title_use_system_font = False
+  window_state = maximise
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_color = "#fdf6e3"
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Monospace 12
+    foreground_color = "#657b83"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
