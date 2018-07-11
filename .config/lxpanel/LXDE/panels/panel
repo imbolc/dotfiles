@@ -7,7 +7,7 @@ Global {
   margin=0
   widthtype=percent
   width=100
-  height=32
+  height=25
   transparent=0
   tintcolor=#606060
   alpha=147
@@ -19,7 +19,7 @@ Global {
   fontcolor=#ffffff
   background=1
   backgroundfile=/usr/share/lxpanel/images/background.png
-  iconsize=32
+  iconsize=25
   usefontsize=0
   fontsize=10
 }
@@ -75,8 +75,8 @@ Plugin {
     Warning1Color=#fff000
     Warning2Color=#ff0000
     AutomaticLevels=1
-    Warning1Temp=105
-    Warning2Temp=110
+    Warning1Temp=90
+    Warning2Temp=95
     AutomaticSensor=1
   }
 }

@@ -4,7 +4,7 @@
   dbus = False
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
   tab_position = right
-  title_font = Monospace 12
+  title_font = Monospace 14
   title_use_system_font = False
   window_state = maximise
 [keybindings]
@@ -24,7 +24,7 @@
     background_color = "#fdf6e3"
     cursor_blink = False
     cursor_color = "#aaaaaa"
-    font = Monospace 13
+    font = Monospace 14
     foreground_color = "#657b83"
     scrollbar_position = hidden
     show_titlebar = False
