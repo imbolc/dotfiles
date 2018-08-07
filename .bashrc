@@ -108,6 +108,17 @@ if [ -d "${PYENV_ROOT}" ]; then
   eval "$(pyenv init -)"
 fi
 
+# golang
+export GOROOT="/usr/lib/go-1.10"
+if [ -d "${GOROOT}" ]; then
+  export PATH="${GOROOT}/bin:${PATH}"
+fi
+export GOPATH="/home/imbolc/go"
+if [ -d "${GOPATH}" ]; then
+  export PATH="${GOPATH}/bin:${PATH}"
+fi
+
+
 # django completion
 _django_completion()
 {
