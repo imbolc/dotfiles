@@ -12,6 +12,8 @@
 @pcmanfm --desktop --profile LXDE
 # @xscreensaver -no-splash
 
+redshift -l 56.0153:92.8932
+
 terminator
 chromium
 telegram

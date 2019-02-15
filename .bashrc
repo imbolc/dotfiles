@@ -207,3 +207,5 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# oni
+export ONI_NEOVIM_PATH="{$HOME}/bin/vim"
