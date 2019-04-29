@@ -1,4 +1,5 @@
-tile_cell_pixels = 32
+tile_cell_pixels = 42
 autofight_hunger_stop = 1
 explore_auto_rest = true
 default_manual_training = true
+auto_butcher = hungry

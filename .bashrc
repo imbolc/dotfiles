@@ -118,6 +118,18 @@ if [ -d "${GOPATH}" ]; then
   export PATH="${GOPATH}/bin:${PATH}"
 fi
 
+# rust
+export CARGO_ROOT="${HOME}/.cargo/bin"
+if [ -d "${CARGO_ROOT}" ]; then
+  export PATH="${CARGO_ROOT}/bin:${PATH}"
+fi
+
+# nim
+export NIM_ROOT="${HOME}/.nimble"
+if [ -d "${NIM_ROOT}" ]; then
+  export PATH="${NIM_ROOT}/bin:${PATH}"
+fi
+
 
 # django completion
 _django_completion()

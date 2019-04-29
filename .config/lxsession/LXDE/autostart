@@ -7,13 +7,15 @@
 @xset s off
 @xset -dpms
 
+# brightness
+sudo sh -c 'echo -n 4000 > /sys/class/backlight/intel_backlight/brightness'
 
 @lxpanel --profile LXDE
 @pcmanfm --desktop --profile LXDE
 # @xscreensaver -no-splash
 
-terminator
-chromium
+# terminator
+# chromium
 telegram
-keepassx
-anki
+# keepassx
+# anki

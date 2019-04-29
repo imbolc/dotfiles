@@ -3,6 +3,9 @@
   broadcast_default = off
   dbus = False
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
+  extra_styling = False
+  inactive_color_offset = 1.0
+  scroll_tabbar = True
   tab_position = right
   title_font = Monospace 12
   title_use_system_font = False
@@ -24,8 +27,9 @@
     background_color = "#fdf6e3"
     cursor_blink = False
     cursor_color = "#aaaaaa"
-    font = Monospace 12
+    font = Monospace 14
     foreground_color = "#657b83"
+    icon_bell = False
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
