@@ -75,8 +75,8 @@ Plugin {
     Warning1Color=#fff000
     Warning2Color=#ff0000
     AutomaticLevels=1
-    Warning1Temp=105
-    Warning2Temp=110
+    Warning1Temp=70
+    Warning2Temp=75
     AutomaticSensor=1
   }
 }
@@ -106,7 +106,7 @@ Plugin {
   type=dclock
   Config {
     ClockFmt=%R
-    TooltipFmt=%A %x
+    TooltipFmt=%F
     BoldFont=0
     IconOnly=0
     CenterText=0
@@ -126,6 +126,6 @@ Plugin {
     BorderWidth=1
     Size=8
     ShowExtendedInformation=0
-    BatteryNumber=1
+    BatteryNumber=0
   }
 }

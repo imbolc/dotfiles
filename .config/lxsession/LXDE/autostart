@@ -8,14 +8,16 @@
 @xset -dpms
 
 # brightness
-sudo sh -c 'echo -n 4000 > /sys/class/backlight/intel_backlight/brightness'
+# sudo sh -c 'echo -n 4000 > /sys/class/backlight/intel_backlight/brightness'
 
 @lxpanel --profile LXDE
 @pcmanfm --desktop --profile LXDE
 # @xscreensaver -no-splash
 
+# redshift -l geoclue2
 # terminator
-# chromium
+# google-chrome
 telegram
 # keepassx
-# anki
+skypeforlinux
+anki

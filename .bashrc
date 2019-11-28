@@ -109,13 +109,9 @@ if [ -d "${PYENV_ROOT}" ]; then
 fi
 
 # golang
-export GOROOT="/usr/lib/go-1.10"
+export GOROOT="/usr/local/go"
 if [ -d "${GOROOT}" ]; then
   export PATH="${GOROOT}/bin:${PATH}"
-fi
-export GOPATH="/home/imbolc/go"
-if [ -d "${GOPATH}" ]; then
-  export PATH="${GOPATH}/bin:${PATH}"
 fi
 
 # rust
@@ -128,6 +124,16 @@ fi
 export NIM_ROOT="${HOME}/.nimble"
 if [ -d "${NIM_ROOT}" ]; then
   export PATH="${NIM_ROOT}/bin:${PATH}"
+fi
+
+# java
+export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
+
+# android
+export ANDROID_HOME="${HOME}/bin/android/sdk"
+# export ANDROID_HOME="/usr/lib/android-sdk"
+if [ -d "${ANDROID_HOME}" ]; then
+    export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
 fi
 
 
@@ -198,12 +204,14 @@ complete -F _fab fab
 alias df='df -H'
 alias du='du -chs * | sort -h'
 alias rsync='rsync -rPh --info=progress2'
-alias youtube-dl-date="youtube-dl -o '%(upload_date)s %(title)s.%(ext)s'"
+alias youtube-dl-mp3="youtube-dl -x --audio-format mp3"
+alias youtube-dl-date="youtube-dl -i -o '%(upload_date)s %(title)s.%(ext)s'"
+alias youtube-dl-date-mp3="youtube-dl-date -x --audio-format mp3"
 alias wrk="wrk -d5"
 
 # More ls
-alias ll='ls -lF'
-alias la='ls -alF'
+alias ll='ls -hlF'
+alias la='ls -ahlF'
 alias l='ls -CF'
 
 # Other aliases
@@ -230,3 +238,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
