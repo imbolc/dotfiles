@@ -126,6 +126,6 @@ Plugin {
     BorderWidth=1
     Size=8
     ShowExtendedInformation=0
-    BatteryNumber=1
+    BatteryNumber=0
   }
 }
