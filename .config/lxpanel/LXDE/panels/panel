@@ -89,6 +89,18 @@ Plugin {
   }
 }
 Plugin {
+  type=xkb
+  Config {
+    Model=pc105
+    LayoutsList=us,ru
+    VariantsList=,
+    ToggleOpt=grp:caps_toggle
+    FlagSize=1
+    DisplayType=0
+    KeepSysLayouts=0
+  }
+}
+Plugin {
   type=monitors
   Config {
     DisplayCPU=1

@@ -3,3 +3,4 @@ autofight_hunger_stop = 1
 explore_auto_rest = true
 default_manual_training = true
 auto_butcher = hungry
+force_more_message = finished your manual
