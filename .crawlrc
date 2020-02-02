@@ -1,3 +1,4 @@
+tile_cell_pixels = 48
 autofight_hunger_stop = 1
 explore_auto_rest = true
 default_manual_training = true
