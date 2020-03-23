@@ -240,5 +240,6 @@ fi
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/share/bash-completion/completions/pass ] && source /usr/share/bash-completion/completions/pass
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
