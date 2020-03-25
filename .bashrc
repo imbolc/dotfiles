@@ -202,7 +202,7 @@ complete -F _fab fab
 
 # System updates
 alias df='df -H'
-alias du='du -chs * | sort -h'
+alias du='du -chs .[!.]* * | sort -h'
 alias rsync='rsync -rPh --info=progress2'
 alias youtube-dl-mp3="youtube-dl -x --audio-format mp3"
 alias youtube-dl-date="youtube-dl -i -o '%(upload_date)s %(title)s.%(ext)s'"
