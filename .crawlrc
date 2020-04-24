@@ -2,5 +2,14 @@ tile_cell_pixels = 48
 autofight_hunger_stop = 1
 explore_auto_rest = true
 default_manual_training = true
-auto_butcher = hungry
 force_more_message = finished your manual
+
+autofight_stop = 75
+autofight_caught = true
+
+auto_butcher = full
+easy_eat_chunks = true
+auto_eat_chunks = true
+auto_drop_chunks = rotten
+
+travel_stop_message = You feel uncertain
