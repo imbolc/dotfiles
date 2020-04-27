@@ -245,19 +245,19 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 
-# direnv
-eval "$(direnv hook bash)"
-show_virtual_env() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-    echo "($(basename $VIRTUAL_ENV))"
-  fi
-}
-export -f show_virtual_env
-PS1='$(show_virtual_env)'$PS1
-
-
 # git branch
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/|\1/'
 }
 export PS1="\u@\h:\[\e[32m\]\w\[\e[33m\]\$(git_branch)\[\e[00m\]$ "
+
+
+# # direnv
+# eval "$(direnv hook bash)"
+# show_virtual_env() {
+#   if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+#     echo "($(basename $VIRTUAL_ENV)) "
+#   fi
+# }
+# export -f show_virtual_env
+# PS1='$(show_virtual_env)'$PS1
