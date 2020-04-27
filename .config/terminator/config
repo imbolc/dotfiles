@@ -1,16 +1,30 @@
 [global_config]
-  borderless = True
-  broadcast_default = off
   dbus = False
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
-  extra_styling = False
-  inactive_color_offset = 1.0
-  scroll_tabbar = True
-  tab_position = right
-  title_font = Monospace 12
-  title_use_system_font = False
   window_state = maximise
+  borderless = True
+  extra_styling = False
+  tab_position = right
+  broadcast_default = off
+  scroll_tabbar = True
+  inactive_color_offset = 1.0
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
+  title_use_system_font = False
+  title_font = Monospace 12
 [keybindings]
+  next_tab = <Primary>j
+  prev_tab = <Primary>k
+[profiles]
+  [[default]]
+    allow_bold = False
+    icon_bell = False
+    background_color = "#fdf6e3"
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Monospace 14
+    foreground_color = "#657b83"
+    show_titlebar = False
+    scrollbar_position = hidden
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -21,15 +35,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    allow_bold = False
-    background_color = "#fdf6e3"
-    cursor_blink = False
-    cursor_color = "#aaaaaa"
-    font = Monospace 14
-    foreground_color = "#657b83"
-    icon_bell = False
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
