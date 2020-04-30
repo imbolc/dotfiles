@@ -252,12 +252,25 @@ git_branch() {
 export PS1="\u@\h:\[\e[32m\]\w\[\e[33m\]\$(git_branch)\[\e[00m\]$ "
 
 
-# # direnv
-# eval "$(direnv hook bash)"
-# show_virtual_env() {
-#   if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-#     echo "($(basename $VIRTUAL_ENV)) "
-#   fi
-# }
-# export -f show_virtual_env
-# PS1='$(show_virtual_env)'$PS1
+# automatic virtualenv activation
+_activate_virtualenv() {
+    _VENV_FOLDER=.venv
+    if [[ -n $VIRTUAL_ENV ]] ; then
+        ## deactivate virtualenv if the current folder isn't belong the activated one
+        parentdir=$(dirname $VIRTUAL_ENV)
+        if [[ $(realpath $PWD)/ != $parentdir/* ]] ; then
+            deactivate
+        fi
+    fi 
+    if [[ -z $VIRTUAL_ENV ]] ; then
+        if [[ -d $_VENV_FOLDER ]]; then
+            _VENV_NAME=$(basename `pwd`)
+            VIRTUAL_ENV_DISABLE_PROMPT=1
+            source $_VENV_FOLDER/bin/activate
+            _OLD_VIRTUAL_PS1=$PS1
+            PS1="($_VENV_NAME) $PS1"
+            export PS1
+        fi
+    fi
+}
+export PROMPT_COMMAND=_activate_virtualenv
