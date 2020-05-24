@@ -115,7 +115,7 @@ if [ -d "${GOROOT}" ]; then
 fi
 
 # rust
-export CARGO_ROOT="${HOME}/.cargo/bin"
+export CARGO_ROOT="${HOME}/.cargo"
 if [ -d "${CARGO_ROOT}" ]; then
   export PATH="${CARGO_ROOT}/bin:${PATH}"
 fi
@@ -253,24 +253,54 @@ export PS1="\u@\h:\[\e[32m\]\w\[\e[33m\]\$(git_branch)\[\e[00m\]$ "
 
 
 # automatic virtualenv activation
+# _activate_virtualenv() {
+#     _VENV_FOLDER=.venv
+#     if [[ -n $VIRTUAL_ENV ]] ; then
+#         ## deactivate virtualenv if the current folder isn't belong the activated one
+#         parentdir=$(dirname $VIRTUAL_ENV)
+#         if [[ $(realpath $PWD)/ != $parentdir/* ]] ; then
+#             deactivate
+#         fi
+#     fi 
+#     if [[ -z $VIRTUAL_ENV ]] ; then
+#         if [[ -d $_VENV_FOLDER ]]; then
+#             _VENV_NAME=$(basename `pwd`)
+#             VIRTUAL_ENV_DISABLE_PROMPT=1
+#             source $_VENV_FOLDER/bin/activate
+#             _OLD_VIRTUAL_PS1=$PS1
+#             PS1="($_VENV_NAME) $PS1"
+#             export PS1
+#         fi
+#     fi
+# }
 _activate_virtualenv() {
-    _VENV_FOLDER=.venv
-    if [[ -n $VIRTUAL_ENV ]] ; then
-        ## deactivate virtualenv if the current folder isn't belong the activated one
-        parentdir=$(dirname $VIRTUAL_ENV)
-        if [[ $(realpath $PWD)/ != $parentdir/* ]] ; then
+    _VENV_FOLDERS=(
+        .venv
+        var/env
+    )
+    if [[ -n $_VENV_ROOT ]] ; then
+        # deactivate virtualenv if the current folder isn't belong the activated one
+        if [[ $(realpath $PWD)/ != $_VENV_ROOT/* ]] ; then
             deactivate
+            echo "Virtualenv deactivated: $_VENV_NAME"
+            unset _VENV_ROOT
+            unset _VENV_NAME
         fi
-    fi 
+    fi
     if [[ -z $VIRTUAL_ENV ]] ; then
-        if [[ -d $_VENV_FOLDER ]]; then
-            _VENV_NAME=$(basename `pwd`)
-            VIRTUAL_ENV_DISABLE_PROMPT=1
-            source $_VENV_FOLDER/bin/activate
-            _OLD_VIRTUAL_PS1=$PS1
-            PS1="($_VENV_NAME) $PS1"
-            export PS1
-        fi
+        for _VENV_FOLDER in "${_VENV_FOLDERS[@]}"; do
+            if [[ -f "$_VENV_FOLDER/bin/activate" ]]; then
+                _VENV_ROOT=$(realpath $PWD)
+                _VENV_NAME=$(basename `pwd`)
+                VIRTUAL_ENV_DISABLE_PROMPT=1
+                source $_VENV_FOLDER/bin/activate
+                _OLD_VIRTUAL_PS1=$PS1
+                PS1="($_VENV_NAME) $PS1"
+                export PS1
+                echo -e "Virtualenv activated: $_VENV_NAME"
+                break
+            fi
+        done
     fi
 }
 export PROMPT_COMMAND=_activate_virtualenv
