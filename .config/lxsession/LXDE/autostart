@@ -16,6 +16,6 @@ redshift -l 56.0153:92.8932
 
 terminator
 chromium
-telegram
-keepassx
-anki
+# telegram
+# keepassx
+# anki
