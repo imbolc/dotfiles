@@ -9,6 +9,9 @@ set nobackup
 set noswapfile
 set nowritebackup
 
+set splitright
+set splitbelow
+
 set nowrap
 set novisualbell
 set t_vb=
