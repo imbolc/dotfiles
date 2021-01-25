@@ -44,10 +44,15 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -115,9 +120,10 @@ if [ -d "${GOROOT}" ]; then
 fi
 
 # rust
-export CARGO_ROOT="${HOME}/.cargo"
-if [ -d "${CARGO_ROOT}" ]; then
-  export PATH="${CARGO_ROOT}/bin:${PATH}"
+export CARGO_ROOT="$HOME/.cargo"
+if [ -d $CARGO_ROOT ]; then
+  export PATH="$CARGO_ROOT/bin:$PATH"
+  # export CARGO_TARGET_DIR="$CARGO_ROOT/target"
 fi
 
 # nim
@@ -215,14 +221,13 @@ alias la='ls -ahlF'
 alias l='ls -CF'
 
 # Other aliases
-alias untar='tar -zxvf'
-alias untar-bz='tar -jxvf'
+alias untar='tar -xvf'
 
 alias restart-nginx="sudo nginx -t && sudo /etc/init.d/nginx restart"
 alias restart-network="sudo /etc/init.d/network-manager restart"
 alias restart-bluetooth="sudo /etc/init.d/bluetooth restart"
 
-alias upgrade="sudo apt update && sudo apt upgrade && sudo apt autoremove"
+alias upgrade="sudo apt update && sudo apt upgrade && sudo apt autoremove && rustup update"
 alias chmod-common="find ./ -type d | xargs chmod -v 755 ; find ./ -type f | xargs chmod -v 644"
 alias add-key="sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "
 alias notebook="jupyter notebook"
@@ -245,34 +250,13 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 
-# git branch
-git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/|\1/'
-}
-export PS1="\u@\h:\[\e[32m\]\w\[\e[33m\]\$(git_branch)\[\e[00m\]$ "
-
-
-# automatic virtualenv activation
-# _activate_virtualenv() {
-#     _VENV_FOLDER=.venv
-#     if [[ -n $VIRTUAL_ENV ]] ; then
-#         ## deactivate virtualenv if the current folder isn't belong the activated one
-#         parentdir=$(dirname $VIRTUAL_ENV)
-#         if [[ $(realpath $PWD)/ != $parentdir/* ]] ; then
-#             deactivate
-#         fi
-#     fi 
-#     if [[ -z $VIRTUAL_ENV ]] ; then
-#         if [[ -d $_VENV_FOLDER ]]; then
-#             _VENV_NAME=$(basename `pwd`)
-#             VIRTUAL_ENV_DISABLE_PROMPT=1
-#             source $_VENV_FOLDER/bin/activate
-#             _OLD_VIRTUAL_PS1=$PS1
-#             PS1="($_VENV_NAME) $PS1"
-#             export PS1
-#         fi
-#     fi
+# # git branch [moved into tmux statusbar]
+# git_branch() {
+#      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/|\1/'
 # }
+# export PS1="\u@\h:\[\e[32m\]\w\[\e[33m\]\$(git_branch)\[\e[00m\]$ "
+
+
 _activate_virtualenv() {
     _VENV_FOLDERS=(
         .venv

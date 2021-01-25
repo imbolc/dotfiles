@@ -2,7 +2,6 @@
   dbus = False
   window_state = maximise
   borderless = True
-  extra_styling = False
   tab_position = right
   broadcast_default = off
   scroll_tabbar = True
@@ -11,8 +10,8 @@
   title_use_system_font = False
   title_font = Monospace 12
 [keybindings]
-  next_tab = <Primary>j
-  prev_tab = <Primary>k
+  next_tab = <Primary><Shift>j
+  prev_tab = <Primary><Shift>k
 [profiles]
   [[default]]
     allow_bold = False
@@ -21,6 +20,18 @@
     cursor_blink = False
     cursor_color = "#aaaaaa"
     font = Monospace 14
+    foreground_color = "#657b83"
+    show_titlebar = False
+    scrollbar_position = hidden
+    word_chars = "-,.?%&#:_/"
+    use_system_font = False
+  [[large]]
+    allow_bold = False
+    icon_bell = False
+    background_color = "#fdf6e3"
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Monospace 16
     foreground_color = "#657b83"
     show_titlebar = False
     scrollbar_position = hidden
