@@ -50,7 +50,9 @@ fi
 #     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 # fi
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # Color codes: https://askubuntu.com/a/558422/637327
+    # PS1='\[\e[34m\]\w\[\e[0m\]\$ '
+    PS1='\[\e[34;107m\]\w\[\e[0m\]\$ '
 else
     PS1='\w\$ '
 fi
@@ -132,8 +134,14 @@ if [ -d "${NIM_ROOT}" ]; then
   export PATH="${NIM_ROOT}/bin:${PATH}"
 fi
 
+# zig
+export ZIG_ROOT="${HOME}/bin/zig"
+if [ -d "${ZIG_ROOT}" ]; then
+  export PATH="${ZIG_ROOT}:${PATH}"
+fi
+
 # java
-export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
+# export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
 
 # android
 export ANDROID_HOME="${HOME}/bin/android/sdk"

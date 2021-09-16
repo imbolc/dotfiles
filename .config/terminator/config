@@ -23,6 +23,7 @@
     foreground_color = "#657b83"
     show_titlebar = False
     scrollbar_position = hidden
+    disable_mousewheel_zoom = True
     word_chars = "-,.?%&#:_/"
     use_system_font = False
   [[large]]
