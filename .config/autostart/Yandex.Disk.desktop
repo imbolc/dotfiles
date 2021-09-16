@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=yandex-disk start
+Name=Yandex.Disk
+NoDisplay=true
+Type=Application
