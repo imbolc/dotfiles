@@ -1,4 +1,4 @@
 [Desktop Entry]
-Exec=google-chrome
-Name=Chrome
+Exec=firefox-esr
+Name=Firefox
 Type=Application
