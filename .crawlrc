@@ -14,7 +14,8 @@ easy_eat_chunks = true
 auto_eat_chunks = true
 auto_drop_chunks = rotten
 
-travel_stop_message = You feel uncertain
+# travel_stop_message = You feel uncertain
+show_more = false
 
 
 ae := autopickup_exceptions
