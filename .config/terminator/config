@@ -23,7 +23,9 @@
     foreground_color = "#657b83"
     show_titlebar = False
     scrollbar_position = hidden
+    scroll_on_keystroke = False
     disable_mousewheel_zoom = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     word_chars = "-,.?%&#:_/"
     use_system_font = False
   [[large]]
@@ -34,6 +36,15 @@
     cursor_color = "#aaaaaa"
     font = Monospace 16
     foreground_color = "#657b83"
+    show_titlebar = False
+    scrollbar_position = hidden
+    use_system_font = False
+  [[night]]
+    allow_bold = False
+    icon_bell = False
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Monospace 14
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False
