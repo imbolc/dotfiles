@@ -240,7 +240,7 @@ alias restart-nginx="sudo nginx -t && sudo /etc/init.d/nginx restart"
 alias restart-network="sudo /etc/init.d/network-manager restart"
 alias restart-bluetooth="sudo /etc/init.d/bluetooth restart"
 
-alias upgrade="sudo apt update && sudo apt upgrade && sudo apt autoremove && rustup update"
+alias upgrade="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && rustup update"
 alias chmod-common="find ./ -type d | xargs chmod -v 755 ; find ./ -type f | xargs chmod -v 644"
 alias add-key="sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "
 alias notebook="jupyter notebook"
@@ -301,3 +301,4 @@ _activate_virtualenv() {
     fi
 }
 export PROMPT_COMMAND=_activate_virtualenv
+export EDITOR="$VISUAL"
