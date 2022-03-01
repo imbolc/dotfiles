@@ -3,9 +3,6 @@
 -- Automatically show rows vertically if there's not enough horizontal space
 \x auto
 
--- Auto-completion in upper case
-\set COMP_KEYWORD_CASE upper
-
 -- Show `null` this way to differentiate it from empty strings
 \pset null '(null)'
 
@@ -16,18 +13,3 @@
 \set HISTFILE /tmp/.psql_history- :DBNAME
 
 \unset QUIET
-
-
-\echo 'Administrative queries:'
-
-\echo '\t:settings\t-- Server Settings'
-\set settings 'select name, setting,unit,context from pg_settings;'
-
-\echo '\t:dbsize\t\t-- Database Size'
-\set dbsize 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY db_size;'
-
-\echo '\t:tablesize\t-- Tables Size'
-\set tablesize 'SELECT nspname || \'.\' || relname AS \"relation\", pg_size_pretty(pg_relation_size(C.oid)) AS "size" FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\') ORDER BY pg_relation_size(C.oid) DESC LIMIT 40;'
-
-\echo '\t\\h\t\t-- Help with SQL commands'
-\echo '\t\\?\t\t-- Help with psql commands\n'

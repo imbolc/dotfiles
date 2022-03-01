@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/snap/bin/telegram-desktop -- %u
+Icon=/snap/telegram-desktop/current/meta/gui/icon.png
+Name=Telegram
+Type=Application
+Categories=Internet
+MimeType=application/x-xdg-protocol-tg;x-scheme-handler/tg;
