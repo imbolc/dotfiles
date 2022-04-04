@@ -268,6 +268,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # }
 # export PS1="\u@\h:\[\e[32m\]\w\[\e[33m\]\$(git_branch)\[\e[00m\]$ "
 
+export EDITOR="$VISUAL"
 
 _activate_virtualenv() {
     _VENV_FOLDERS=(
@@ -300,4 +301,18 @@ _activate_virtualenv() {
     fi
 }
 export PROMPT_COMMAND=_activate_virtualenv
-export EDITOR="$VISUAL"
+export PROMPT_COMMAND="_activate_virtualenv;$PROMPT_COMMAND"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+_use_nvm() {
+  if [[ $PWD == $PREV_PWD ]]; then
+    return
+  fi
+
+  PREV_PWD=$PWD
+  [[ -f ".nvmrc" ]] && nvm use
+}
+export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"

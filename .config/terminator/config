@@ -14,7 +14,6 @@
   prev_tab = <Primary><Shift>k
 [profiles]
   [[default]]
-    allow_bold = False
     icon_bell = False
     background_color = "#fdf6e3"
     cursor_blink = False
