@@ -3,13 +3,22 @@
 -- Automatically show rows vertically if there's not enough horizontal space
 \x auto
 
--- Show `null` this way to differentiate it from empty strings
-\pset null '(null)'
+-- A specific symbol for `null` to differentiate it from empty strings
+\pset null '¤'
 
 -- Don't show the same command twice in a row into history
 \set HISTCONTROL ignoredups
 
 -- Separate history for each database
 \set HISTFILE /tmp/.psql_history- :DBNAME
+
+-- A little conciser prompt
+\set PROMPT1 '%~%#%x '
+
+-- Stop a script execution if an error occurs
+\set ON_ERROR_STOP on
+
+-- Don't abort a transaction on error in `psql`
+\set ON_ERROR_ROLLBACK interactive
 
 \unset QUIET
