@@ -223,10 +223,14 @@ complete -F _fab fab
 alias df='df -H'
 alias du='du -chs .[!.]* * | sort -h'
 alias rsync='rsync -rPh --info=progress2'
-alias youtube-dl-mp3="youtube-dl -x --audio-format mp3"
-alias youtube-dl-date="youtube-dl -i -o '%(upload_date)s %(title)s.%(ext)s'"
-alias youtube-dl-date-mp3="youtube-dl-date -x --audio-format mp3"
+
 alias wrk="wrk -d5"
+
+alias youtube-dl-one-mp3="youtube-dl -x --audio-format mp3"
+alias youtube-dl-all="python3 -m youtube_dl -ciw --download-archive downloaded.txt -o '%(upload_date)s %(title)s.%(ext)s' --no-post-overwrites"
+alias youtube-dl-all-date="python3 -m youtube_dl -ciw --download-archive downloaded.txt -o '%(upload_date)s %(title)s.%(ext)s' --no-post-overwrites"
+alias youtube-dl-all-mp3="youtube-dl-all -x --audio-format mp3"
+alias youtube-dl-all-date-mp3="youtube-dl-all-date -x --audio-format mp3"
 
 # More ls
 alias ll='ls -hlF'
