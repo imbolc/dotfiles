@@ -320,3 +320,10 @@ _use_nvm() {
   [[ -f ".nvmrc" ]] && nvm use
 }
 export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
+
+if ! pgrep -x "postgres" >/dev/null; then
+    sudo service postgresql start
+fi
+if ! pgrep -x "redis-server" >/dev/null; then
+    sudo service redis-server start
+fi
