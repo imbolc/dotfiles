@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/snap/bin/skype %U
+Icon=/snap/skype/current/meta/gui/skypeforlinux.png
+Name=Skype
+Type=Application
+Categories=Internet
+MimeType=x-scheme-handler/skype;x-scheme-handler/tel;x-scheme-handler/callto;

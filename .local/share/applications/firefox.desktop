@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/snap/bin/firefox %u
+Icon=/snap/firefox/current/default256.png
+Name=Firefox
+Type=Application
+Categories=Internet
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;

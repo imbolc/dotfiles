@@ -304,7 +304,7 @@ _activate_virtualenv() {
         done
     fi
 }
-export PROMPT_COMMAND=_activate_virtualenv
+#export PROMPT_COMMAND=_activate_virtualenv
 export PROMPT_COMMAND="_activate_virtualenv;$PROMPT_COMMAND"
 
 export NVM_DIR="$HOME/.nvm"
@@ -320,3 +320,4 @@ _use_nvm() {
   [[ -f ".nvmrc" ]] && nvm use
 }
 export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
+. "$HOME/.cargo/env"
