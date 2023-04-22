@@ -321,3 +321,10 @@ _use_nvm() {
 }
 export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
 . "$HOME/.cargo/env"
+
+# fly.io
+export FLYCTL_INSTALL="$HOME/.fly"
+if [ -d "${FLYCTL_INSTALL}" ]; then
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
+
