@@ -7,8 +7,6 @@
   scroll_tabbar = True
   inactive_color_offset = 1.0
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
-  title_use_system_font = False
-  title_font = Monospace 12
 [keybindings]
   next_tab = <Primary><Shift>j
   prev_tab = <Primary><Shift>k
@@ -17,22 +15,20 @@
     icon_bell = False
     background_color = "#fdf6e3"
     cursor_blink = False
-    cursor_color = "#aaaaaa"
-    font = Monospace 14
+    font = Monospace 16
     foreground_color = "#657b83"
     show_titlebar = False
     scrollbar_position = hidden
     scroll_on_keystroke = False
     disable_mousewheel_zoom = True
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    word_chars = "-,.?%&#:_/"
+    word_chars = "-,.?%&#_/"
     use_system_font = False
   [[large]]
     allow_bold = False
     icon_bell = False
     background_color = "#fdf6e3"
     cursor_blink = False
-    cursor_color = "#aaaaaa"
     font = Monospace 16
     foreground_color = "#657b83"
     show_titlebar = False
@@ -42,7 +38,6 @@
     allow_bold = False
     icon_bell = False
     cursor_blink = False
-    cursor_color = "#aaaaaa"
     font = Monospace 14
     show_titlebar = False
     scrollbar_position = hidden

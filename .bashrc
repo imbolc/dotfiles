@@ -118,6 +118,7 @@ export PYENV_ROOT="${HOME}/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 # golang
@@ -259,9 +260,19 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f /usr/share/bash-completion/completions/pass ] && source /usr/share/bash-completion/completions/pass
+# # Ctrl+R with Rust alternatives
+# if command -v rg &> /dev/null && command -v sk &> /dev/null; then
+#     _rg_history_search_skim() {
+#         local query=$(echo $(rg --no-heading --max-columns=1000 --no-line-number --smart-case --color=never --fixed-strings "$READLINE_LINE" ~/.bash_history | sk --inline-info --exact) | awk '{$1=$1};1')
+#         READLINE_LINE="$query"
+#         READLINE_POINT=${#query}
+#     }
+#
+#     # Bind the function to Ctrl+R
+#     bind -x '"\C-r": _rg_history_search_skim'
+# else
+#     echo "ripgrep and/or skim not found. Skipping custom Ctrl+R binding."
+# fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
