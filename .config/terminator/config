@@ -2,6 +2,7 @@
   dbus = False
   window_state = maximise
   borderless = True
+  extra_styling = False
   tab_position = right
   broadcast_default = off
   scroll_tabbar = True
@@ -15,7 +16,7 @@
     icon_bell = False
     background_color = "#fdf6e3"
     cursor_blink = False
-    font = Monospace 16
+    font = Monospace 15
     foreground_color = "#657b83"
     show_titlebar = False
     scrollbar_position = hidden

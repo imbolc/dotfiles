@@ -331,6 +331,7 @@ _use_nvm() {
   [[ -f ".nvmrc" ]] && nvm use
 }
 export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
+
 . "$HOME/.cargo/env"
 
 # fly.io
