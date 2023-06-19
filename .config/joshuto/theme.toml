@@ -1,0 +1,34 @@
+[selection]
+fg = "light_yellow"
+bold = true
+
+[visual_mode_selection]
+fg = "light_red"
+bold = true
+
+[selection.prefix]
+prefix = "  "
+size = 2
+
+[executable]
+fg = "lightgreen"
+bold = true
+
+[regular]
+# fg = "black"
+
+[directory]
+fg = "blue"
+bold = true
+
+[link]
+fg = "cyan"
+bold = true
+
+[link_invalid]
+fg = "red"
+bold = true
+
+[socket]
+fg = "light_magenta"
+bold = true
