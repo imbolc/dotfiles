@@ -9,8 +9,3 @@ mv dotfiles/.gitignore ./
 git diff
 git checkout .
 ```
-
-## Vim
-```sh
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-```
