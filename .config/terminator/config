@@ -47,6 +47,20 @@
     scrollbar_position = hidden
     word_chars = "-,.?%&#_/"
     use_system_font = False
+  [[p1-gen5]]
+    icon_bell = False
+    background_color = "#fdf6e3"
+    cursor_blink = False
+    cursor_fg_color = "#fdf6e3"
+    cursor_bg_color = "#657b83"
+    font = Monospace 13
+    foreground_color = "#657b83"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scroll_on_keystroke = False
+    disable_mousewheel_zoom = True
+    word_chars = "-,.?%&#_/"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
