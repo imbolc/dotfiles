@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Alacritty
+Comment=This is a comment
+Exec=alacritty
+Icon=alacritty
+Terminal=false
+Categories=Utility;TerminalEmulator;
