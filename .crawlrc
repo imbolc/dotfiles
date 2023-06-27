@@ -1,4 +1,3 @@
-tile_cell_pixels = 48
 autofight_hunger_stop = 1
 explore_auto_rest = true
 default_manual_training = true
@@ -21,3 +20,11 @@ show_more = false
 ae := autopickup_exceptions
 # autopickup artifacts
 ae += <artefact
+
+# scaling
+tile_cell_pixels = 64
+tile_font_crt_size = 28
+tile_font_stat_size = 28
+tile_font_msg_size = 28
+tile_font_tip_size = 28
+tile_font_lbl_size = 28

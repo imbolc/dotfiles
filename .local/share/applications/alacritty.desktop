@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Encoding=UTF-8
 Name=Alacritty
-Comment=This is a comment
-Exec=alacritty
+Comment=The fastest rusty terminal emulator
+Exec=/home/imbolc/.cargo/bin/alacritty
 Icon=alacritty
 Terminal=false
-Categories=Utility;TerminalEmulator;
+Categories=System;TerminalEmulator;
+StartupNotify=false

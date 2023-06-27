@@ -2,7 +2,7 @@ window:
   startup_mode: Maximized
   decorations: none
 font:
-  size: 13
+  size: 13.5
 
 key_bindings:
   - { key: F11, action: ToggleFullScreen }

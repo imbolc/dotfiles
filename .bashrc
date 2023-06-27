@@ -128,11 +128,15 @@ if [ -d "${GOROOT}" ]; then
 fi
 
 # rust
-export CARGO_ROOT="$HOME/.cargo"
-if [ -d $CARGO_ROOT ]; then
-  export PATH="$CARGO_ROOT/bin:$PATH"
-  # export CARGO_TARGET_DIR="$CARGO_ROOT/target"
-fi
+# export CARGO_ROOT="$HOME/.cargo"
+# if [ -d $CARGO_ROOT ]; then
+#   export PATH="$CARGO_ROOT/bin:$PATH"
+#   export CARGO_TARGET_DIR="$CARGO_ROOT/target"
+# fi
+# export PATH="$CARGO_ROOT/bin:$PATH"
+
+. "$HOME/.cargo/env"
+export CARGO_TARGET_DIR="$HOME/.cargo/target"
 
 # nim
 export NIM_ROOT="${HOME}/.nimble"
@@ -331,8 +335,6 @@ _use_nvm() {
   [[ -f ".nvmrc" ]] && nvm use
 }
 export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
-
-. "$HOME/.cargo/env"
 
 # fly.io
 export FLYCTL_INSTALL="$HOME/.fly"
