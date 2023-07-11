@@ -127,16 +127,8 @@ if [ -d "${GOROOT}" ]; then
   export PATH="${GOROOT}/bin:${PATH}"
 fi
 
-# rust
-# export CARGO_ROOT="$HOME/.cargo"
-# if [ -d $CARGO_ROOT ]; then
-#   export PATH="$CARGO_ROOT/bin:$PATH"
-#   export CARGO_TARGET_DIR="$CARGO_ROOT/target"
-# fi
-# export PATH="$CARGO_ROOT/bin:$PATH"
-
 . "$HOME/.cargo/env"
-export CARGO_TARGET_DIR="$HOME/.cargo/target"
+# export CARGO_TARGET_DIR="$HOME/.cargo/target"
 
 # nim
 export NIM_ROOT="${HOME}/.nimble"

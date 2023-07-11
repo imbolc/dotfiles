@@ -21,10 +21,15 @@ ae := autopickup_exceptions
 # autopickup artifacts
 ae += <artefact
 
+tile_full_screen = true
+
 # scaling
 tile_cell_pixels = 64
+tile_sidebar_pixels = 48
+tile_map_pixels = 0
 tile_font_crt_size = 28
 tile_font_stat_size = 28
 tile_font_msg_size = 28
 tile_font_tip_size = 28
 tile_font_lbl_size = 28
+tile_filter_scaling = true
