@@ -6,7 +6,7 @@
   tab_position = right
   broadcast_default = off
   scroll_tabbar = True
-  inactive_color_offset = 1.0
+  inactive_color_offset = 0.5416666666666666
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
 [keybindings]
   next_tab = <Primary><Shift>j
