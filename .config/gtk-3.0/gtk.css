@@ -1,0 +1,14 @@
+.terminator-terminal-window {
+  border-image-width: 0;
+}
+.terminator-terminal-window decoration {
+  border-image-width: 0;
+}
+
+.terminator-terminal-window notebook {
+  border: none;
+}
+.terminator-terminal-window notebook tab {
+  padding: 0;
+  border: 0;
+}
