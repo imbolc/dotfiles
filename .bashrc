@@ -223,12 +223,6 @@ alias rsync='rsync -rPh --info=progress2'
 
 alias wrk="wrk -d5"
 
-alias youtube-dl-one-mp3="python3 -m youtube_dl -x --audio-format mp3"
-alias youtube-dl-all="python3 -m youtube_dl -ciw --download-archive downloaded.txt -o '%(upload_date)s %(title)s.%(ext)s' --no-post-overwrites"
-alias youtube-dl-all-date="python3 -m youtube_dl -ciw --download-archive downloaded.txt -o '%(upload_date)s %(title)s.%(ext)s' --no-post-overwrites"
-alias youtube-dl-all-mp3="youtube-dl-all -x --audio-format mp3"
-alias youtube-dl-all-date-mp3="youtube-dl-all-date -x --audio-format mp3"
-
 # More ls
 alias ll='ls -hlF'
 alias la='ls -ahlF'

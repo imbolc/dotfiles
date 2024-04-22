@@ -23,7 +23,10 @@
 ### Automatically restore the volume of streams and devices
 load-module module-device-restore
 load-module module-stream-restore
-load-module module-card-restore
+
+# imbolc: added `restore_bluetooth_profile=true` following
+# https://askubuntu.com/questions/1248886/how-to-set-default-profile-for-bluetooth-headset
+load-module module-card-restore restore_bluetooth_profile=true
 
 ### Automatically augment property information from .desktop files
 ### stored in /usr/share/application
