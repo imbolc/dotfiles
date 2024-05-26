@@ -8,6 +8,7 @@
   scroll_tabbar = True
   inactive_color_offset = 1.0
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler
+  suppress_multiple_term_dialog = True
 [keybindings]
   next_tab = <Primary><Shift>j
   prev_tab = <Primary><Shift>k

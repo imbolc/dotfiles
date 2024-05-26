@@ -221,7 +221,7 @@ alias df='df -H'
 alias du='du -chs .[!.]* * | sort -h'
 alias rsync='rsync -rPh --info=progress2'
 
-alias wrk="wrk -d5"
+alias wrk='wrk -d5'
 
 # More ls
 alias ll='ls -hlF'
