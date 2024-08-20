@@ -20,7 +20,7 @@
     cursor_blink = False
     cursor_fg_color = "#fdf6e3"
     cursor_bg_color = "#657b83"
-    font = Monospace 13
+    font = Monospace 14
     foreground_color = "#657b83"
     show_titlebar = False
     scrollbar_position = hidden

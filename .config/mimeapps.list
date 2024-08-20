@@ -3,6 +3,7 @@ application/xml=google-chrome.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop
 
 [Added Associations]
 audio/mpeg=vlc.desktop;audacity.desktop;
@@ -12,3 +13,4 @@ image/png=krita_png.desktop;
 text/csv=libreoffice-calc.desktop;
 video/x-matroska=vlc.desktop;
 video/x-msvideo=vlc.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop;
