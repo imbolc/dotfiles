@@ -1,0 +1,12 @@
+import = ["~/.config/alacritty/current_theme.toml"]
+
+[window]
+startup_mode = "Maximized"
+decorations = "none"
+
+[font]
+size = 25.5
+
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullScreen"
