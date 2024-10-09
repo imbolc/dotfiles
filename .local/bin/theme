@@ -13,11 +13,13 @@ if [ "$theme" = "dark" ]; then
 	alacritty_theme="github_dark"
 	bat_config="config-dark"
 	delta_theme="theme-dark"
+	vim_config='vim.opt.background = "dark"'
 else
 	gtk_theme="Adwaita"
 	alacritty_theme="solarized_light"
 	bat_config="config-light"
 	delta_theme="theme-light"
+	vim_config='vim.opt.background = "light"'
 fi
 
 # GTK
@@ -35,3 +37,6 @@ ln -sf $bat_config config
 # Delta
 cd "$HOME/.config/git-delta"
 ln -sf $delta_theme.ini theme.ini
+
+# Vim
+echo "$vim_config" >~/.config/nvim/theme.lua
