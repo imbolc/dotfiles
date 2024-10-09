@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+set -efu
+
+theme="${1-}"
+if [ "$theme" != "dark" ] && [ "$theme" != "light" ]; then
+	printf '\033[0;31m%s\033[0m\n' "Error: Invalid argument" >&2
+	echo "Usage: $0 [dark|light]" >&2
+	exit 1
+fi
+
+if [ "$theme" = "dark" ]; then
+	gtk_theme="Adwaita-dark"
+	alacritty_theme="github_dark"
+	bat_config="config-dark"
+	delta_theme="theme-dark"
+else
+	gtk_theme="Adwaita"
+	alacritty_theme="solarized_light"
+	bat_config="config-light"
+	delta_theme="theme-light"
+fi
+
+# GTK
+xfconf-query -c xsettings -p /Net/ThemeName -s $gtk_theme
+
+# Alacritty
+cd "$HOME/.config/alacritty"
+ln -sf themes/$alacritty_theme.toml current_theme.toml
+touch alacritty.toml
+
+# Bat
+cd "$HOME/.config/bat"
+ln -sf $bat_config config
+
+# Delta
+cd "$HOME/.config/git-delta"
+ln -sf $delta_theme.ini theme.ini
