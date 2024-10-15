@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+set -efu
+
+# Constants
+MIN_LEVEL=8
+MID_LEVEL=10000
+MAX_LEVEL=19393
+
+# Set the level based on the first argument
+case "$1" in
+min) level=$MIN_LEVEL ;;
+mid) level=$MID_LEVEL ;;
+max) level=$MAX_LEVEL ;;
+*) level="$1" ;;
+esac
+
+if ! [ "$level" -eq "$level" ] 2>/dev/null || [ "$level" -lt $MIN_LEVEL ] || [ "$level" -gt $MAX_LEVEL ]; then
+    echo "Error: Level must be an integer between $MIN_LEVEL and $MAX_LEVEL, 'min', 'mid', or 'max'" >&2
+    exit 1
+fi
+
+sudo sh -c "echo $level > /sys/class/backlight/intel_backlight/brightness"

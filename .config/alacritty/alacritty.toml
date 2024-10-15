@@ -6,6 +6,8 @@ decorations = "none"
 
 [font]
 size = 25.5
+italic = { style = "Regular" }
+bold_italic = { style = "Bold" }
 
 [[keyboard.bindings]]
 key = "F11"

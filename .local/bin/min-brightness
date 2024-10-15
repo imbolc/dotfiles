@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-set -efu
-
-sudo sh -c 'echo 8 > /sys/class/backlight/intel_backlight/brightness'
-theme dark
