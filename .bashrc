@@ -190,7 +190,9 @@ _use_nvm() {
 	PREV_PWD=$PWD
 	[[ -f ".nvmrc" ]] && nvm use
 }
-export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
+if [ -d "${NVM_DIR}" ]; then
+	export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
+fi
 
 # android
 JAVA_HOME=$(update-alternatives --query javac 2>/dev/null | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')

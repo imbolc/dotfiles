@@ -13,13 +13,13 @@ if [ "$theme" = "dark" ]; then
 	alacritty_theme="github_dark"
 	bat_config="config-dark"
 	delta_theme="theme-dark"
-	vim_config='vim.opt.background = "dark"'
+	vim_config='vim.opt.background = "dark"\nvim.cmd.colorscheme "PaperColorSlim"'
 else
 	gtk_theme="Adwaita"
 	alacritty_theme="solarized_light"
 	bat_config="config-light"
 	delta_theme="theme-light"
-	vim_config='vim.opt.background = "light"'
+	vim_config='vim.opt.background = "light"\nvim.cmd.colorscheme "PaperColorSlimLight"'
 fi
 
 # GTK
