@@ -205,5 +205,8 @@ if [ -d "${ANDROID_HOME}" ]; then
 	export PATH=$PATH:$ANDROID_HOME/emulator
 fi
 
-ANDROID_NDK_HOME="$(/bin/ls -d "$ANDROID_HOME"/ndk/* | sort -V | tail -1)"
-export ANDROID_NDK_HOME
+if [ -d "$ANDROID_HOME/ndk" ] && ls "$ANDROID_HOME/ndk"/* >/dev/null 2>&1; then
+	# Set to the last NDK directory (assuming version sorting)
+	ANDROID_NDK_HOME=$(ls -d "$ANDROID_HOME/ndk"/* | sort -V | tail -1)
+	export ANDROID_NDK_HOME
+fi
