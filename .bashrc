@@ -1,3 +1,5 @@
+# LLM: Check the code for bugs, typos, clarity and conciseness of comments/text messages, good variable naming, idiomatic usage, and adherence to best practices. For any issues found, provide a code diff instead of the full code.
+
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
@@ -94,15 +96,15 @@ if [ -d "${PYENV_ROOT}" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-# Automatically activate pyenv
+# Automatically activate virtualenv
 _activate_virtualenv() {
     _VENV_FOLDERS=(
         .venv
         var/env
     )
     if [[ -n $_VENV_ROOT ]]; then
-        # Deactivate virtualenv if the current folder isn't belong the activated one
-        if [[ $(realpath "$PWD")/ != $_VENV_ROOT/* ]]; then
+        # Deactivate virtualenv if the current folder isn't under the activated one
+        if [[ ! $(realpath "$PWD")/ =~ ^$_VENV_ROOT/ ]]; then
             deactivate
             echo "Virtualenv deactivated: $_VENV_NAME"
             unset _VENV_ROOT
@@ -118,8 +120,7 @@ _activate_virtualenv() {
                 VIRTUAL_ENV_DISABLE_PROMPT=1
                 # shellcheck disable=SC1091
                 . "$_VENV_FOLDER"/bin/activate
-                _OLD_VIRTUAL_PS1=$PS1
-                echo -e "Virtualenv activated: $_VENV_NAME"
+                echo "Virtualenv activated: $_VENV_NAME"
                 break
             fi
         done
@@ -135,11 +136,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 _use_nvm() {
-    if [[ $PWD == "$PREV_PWD" ]]; then
+    if [[ $PWD == "$nvm_prev_pwd" ]]; then
         return
     fi
 
-    PREV_PWD=$PWD
+    nvm_prev_pwd=$PWD
     [[ -f ".nvmrc" ]] && nvm use
 }
 if [ -d "${NVM_DIR}" ]; then
