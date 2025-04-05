@@ -3,7 +3,8 @@ b = "lbuild"
 c = "lcheck"
 t = "ltest"
 r = "lrun"
-w = "watch -x run"
+w = "watch -x lcheck"
+wr = "watch -x lrun"
 rl = "lrun --example lab"
 
 [target.x86_64-unknown-linux-gnu]

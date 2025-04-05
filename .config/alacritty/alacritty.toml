@@ -1,14 +1,16 @@
-import = ["~/.config/alacritty/current_theme.toml"]
 
 [window]
 startup_mode = "Maximized"
 decorations = "none"
 
 [font]
-size = 25.5
+size = 15
 italic = { style = "Regular" }
 bold_italic = { style = "Bold" }
 
 [[keyboard.bindings]]
 key = "F11"
 action = "ToggleFullScreen"
+
+[general]
+import = ["~/.config/alacritty/current_theme.toml"]
