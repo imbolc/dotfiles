@@ -6,9 +6,6 @@ case $- in
 *) return ;;
 esac
 
-# Append to the history file, don't overwrite it
-shopt -s histappend
-
 # Don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 
@@ -25,20 +22,20 @@ HISTIGNORE="ls:ll:cd:pwd:bg:fg:history"
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
 
-# Make prompt to display the current working directory (\w) followed by a dollar sign ($)
-PS1='\w\$ '
+# Make prompt to display the current working directory (\w) followed by a dollar sign ($) in inverse color
+PS1='\[\e[7m\]\w\$\[\e[0m\] '
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    if test -r ~/.dircolors; then
-        eval "$(dircolors -b ~/.dircolors)"
-    else
-        eval "$(dircolors -b)"
-    fi
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	if test -r ~/.dircolors; then
+		eval "$(dircolors -b ~/.dircolors)"
+	else
+		eval "$(dircolors -b)"
+	fi
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 # Aliases
@@ -53,16 +50,16 @@ alias untar='tar -xvf'
 
 # shellcheck source=/dev/null
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 # Enable programmable completion features (sudo apt install bash-completion)
 if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
 # Enable sudo autocomplete
@@ -77,7 +74,7 @@ export EDITOR="$VISUAL"
 
 # Add user's bin folder to PATH
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Cargo
@@ -85,46 +82,46 @@ fi
 
 # Snap
 if [ -d "/snap/bin" ]; then
-    PATH="/snap/bin:$PATH"
+	PATH="/snap/bin:$PATH"
 fi
 
 # Pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
-    export PATH="${PYENV_ROOT}/bin:${PATH}"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+	export PATH="${PYENV_ROOT}/bin:${PATH}"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
 fi
 
 # Automatically activate virtualenv
 _activate_virtualenv() {
-    _VENV_FOLDERS=(
-        .venv
-        var/env
-    )
-    if [[ -n $_VENV_ROOT ]]; then
-        # Deactivate virtualenv if the current folder isn't under the activated one
-        if [[ ! $(realpath "$PWD")/ =~ ^$_VENV_ROOT/ ]]; then
-            deactivate
-            echo "Virtualenv deactivated: $_VENV_NAME"
-            unset _VENV_ROOT
-            unset _VENV_NAME
-        fi
-    fi
-    if [[ -z $VIRTUAL_ENV ]]; then
-        for _VENV_FOLDER in "${_VENV_FOLDERS[@]}"; do
-            if [[ -f "$_VENV_FOLDER/bin/activate" ]]; then
-                _VENV_ROOT=$(realpath "$PWD")
-                _VENV_NAME=$(basename "$PWD")
-                # shellcheck disable=SC2034
-                VIRTUAL_ENV_DISABLE_PROMPT=1
-                # shellcheck disable=SC1091
-                . "$_VENV_FOLDER"/bin/activate
-                echo "Virtualenv activated: $_VENV_NAME"
-                break
-            fi
-        done
-    fi
+	_VENV_FOLDERS=(
+		.venv
+		var/env
+	)
+	if [[ -n $_VENV_ROOT ]]; then
+		# Deactivate virtualenv if the current folder isn't under the activated one
+		if [[ ! $(realpath "$PWD")/ =~ ^$_VENV_ROOT/ ]]; then
+			deactivate
+			echo "Virtualenv deactivated: $_VENV_NAME"
+			unset _VENV_ROOT
+			unset _VENV_NAME
+		fi
+	fi
+	if [[ -z $VIRTUAL_ENV ]]; then
+		for _VENV_FOLDER in "${_VENV_FOLDERS[@]}"; do
+			if [[ -f "$_VENV_FOLDER/bin/activate" ]]; then
+				_VENV_ROOT=$(realpath "$PWD")
+				_VENV_NAME=$(basename "$PWD")
+				# shellcheck disable=SC2034
+				VIRTUAL_ENV_DISABLE_PROMPT=1
+				# shellcheck disable=SC1091
+				. "$_VENV_FOLDER"/bin/activate
+				echo "Virtualenv activated: $_VENV_NAME"
+				break
+			fi
+		done
+	fi
 }
 export PROMPT_COMMAND="_activate_virtualenv;$PROMPT_COMMAND"
 
@@ -136,15 +133,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 _use_nvm() {
-    if [[ $PWD == "$nvm_prev_pwd" ]]; then
-        return
-    fi
+	if [[ $PWD == "$nvm_prev_pwd" ]]; then
+		return
+	fi
 
-    nvm_prev_pwd=$PWD
-    [[ -f ".nvmrc" ]] && nvm use
+	nvm_prev_pwd=$PWD
+	[[ -f ".nvmrc" ]] && nvm use
 }
 if [ -d "${NVM_DIR}" ]; then
-    export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
+	export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
 fi
 
 # Android
@@ -154,27 +151,31 @@ export JAVA_HOME
 
 export ANDROID_HOME="$HOME/Android/Sdk"
 if [ -d "${ANDROID_HOME}" ]; then
-    export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
-    export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export PATH=$PATH:$ANDROID_HOME/emulator
+	export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+	export PATH=$PATH:$ANDROID_HOME/platform-tools
+	export PATH=$PATH:$ANDROID_HOME/emulator
 fi
 
 if [ -d "$ANDROID_HOME/ndk" ] && ls "$ANDROID_HOME/ndk"/* >/dev/null 2>&1; then
-    # Set to the last NDK directory (assuming version sorting)
-    ANDROID_NDK_HOME=$(find "$ANDROID_HOME/ndk" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)
-    export ANDROID_NDK_HOME
+	# Set to the last NDK directory (assuming version sorting)
+	ANDROID_NDK_HOME=$(find "$ANDROID_HOME/ndk" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)
+	export ANDROID_NDK_HOME
 fi
 
 # Bind Ctrl+R to use skim if it's available (cargo install skim)
 if command -v sk >/dev/null 2>&1; then
-    # Function to use skim for history search
-    skim_history() {
-        local selected
-        selected=$(history | sed 's/^[ ]*[0-9]*[ ]*//' | tac | awk '!seen[$0]++' | sk --height='40%' --no-sort)
-        if [ -n "$selected" ]; then
-            READLINE_LINE="$selected"
-            READLINE_POINT=${#selected}
-        fi
-    }
-    bind -x '"\C-r": skim_history'
+	# Function to use skim for history search
+	skim_history() {
+		local selected
+		selected=$(history | sed 's/^[ ]*[0-9]*[ ]*//' | tac | awk '!seen[$0]++' | sk --height='40%' --no-sort)
+		if [ -n "$selected" ]; then
+			READLINE_LINE="$selected"
+			READLINE_POINT=${#selected}
+		fi
+	}
+	bind -x '"\C-r": skim_history'
 fi
+
+# if command -v starship >/dev/null 2>&1; then
+#     eval "$(starship init bash)"
+# fi

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Sets up a systemd timer to play a bell sound hourly between 8am and 6pm
-set -eux
+set -eu
 
 sudo apt install -y sox
 
@@ -12,7 +12,7 @@ Description=Play hourly bell sound
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/play -n synth 3 sine 180 sine 270 sine 360 tremolo 3 30 fade t 0 3 2.5 repeat 2
+ExecStart=/usr/bin/play -n synth 3 sine 180 sine 270 sine 360 tremolo 3 30 fade t 0 3 2.5
 EOF
 
 cat >~/.config/systemd/user/hourly-bell.timer <<EOF
@@ -20,7 +20,8 @@ cat >~/.config/systemd/user/hourly-bell.timer <<EOF
 Description=Timer to play bell sound hourly between 8am and 6pm
 
 [Timer]
-OnCalendar=*-*-* 08..18:00:00
+OnCalendar=hourly
+OnCalendar=*-*-* 04..18:00:00
 
 [Install]
 WantedBy=timers.target
