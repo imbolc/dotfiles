@@ -9,7 +9,17 @@ if lsof "$dst" >/dev/null 2>&1; then
     echo "The vim file is busy, close all the editor instances first"
     exit 1
 fi
-curl -L https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage -o $tmp
+
+
+arch=$(uname -m)
+case $arch in
+    x86_64) filename="nvim-linux-x86_64.appimage";;
+    aarch64|arm*) filename="nvim-linux-arm64.appimage";;
+    *) echo "Unsupported architecture: $arch"; exit 1;;
+esac
+curl -L "https://github.com/neovim/neovim/releases/latest/download/$filename" -o "$tmp"
+
+
 sudo mv $tmp $dst
 chmod +x $dst
 
