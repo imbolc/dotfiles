@@ -23,8 +23,8 @@ else
 fi
 
 # GTK
-xfconf-query -c xsettings -p /Net/ThemeName -s $gtk_theme
-xfconf-query -c xsettings -p /Net/IconThemeName -s Tango # Chrome only pickups changes only if both the theme and the icons are updated
+# xfconf-query -c xsettings -p /Net/ThemeName -s $gtk_theme
+# xfconf-query -c xsettings -p /Net/IconThemeName -s Tango # Chrome only pickups changes only if both the theme and the icons are updated
 
 # Alacritty
 cd "$HOME/.config/alacritty"

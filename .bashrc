@@ -10,13 +10,7 @@ esac
 HISTCONTROL=ignoreboth
 
 # Set history length
-HISTSIZE=100000
-
-# Append and reload the history after each command
-PROMPT_COMMAND="history -a; history -n"
-
-# Ignore certain commands from the history
-HISTIGNORE="ls:ll:cd:pwd:bg:fg:history"
+HISTSIZE=1000
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize

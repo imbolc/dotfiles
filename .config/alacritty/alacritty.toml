@@ -4,7 +4,7 @@ startup_mode = "Maximized"
 decorations = "none"
 
 [font]
-size = 15
+size = 24
 italic = { style = "Regular" }
 bold_italic = { style = "Bold" }
 
