@@ -8,25 +8,29 @@ sudo apt autoremove -y
 
 rustup update
 cargo install --locked \
-	alacritty \
-	bat \
-	cargo-expand \
-	cargo-generate \
-	cargo-limit \
-	cargo-machete \
-	cargo-onefile \
-	cargo-sort \
-	cargo-tree \
-	cargo-watch \
-	comrak \
-	fd-find \
-	git-delta \
-	jaq \
-	ripgrep \
-	rust-script \
-	skim \
-	sleek \
-	sqlx-cli \
-	stylua \
-	taplo-cli \
-	typos-cli \
+    alacritty \
+    bat \
+    cargo-expand \
+    cargo-generate \
+    cargo-limit \
+    cargo-machete \
+    cargo-onefile \
+    cargo-sort \
+    cargo-tree \
+    cargo-watch \
+    comrak \
+    fd-find \
+    git-delta \
+    jaq \
+    ripgrep \
+    rust-script \
+    skim \
+    sleek \
+    sqlx-cli \
+    stylua \
+    taplo-cli \
+    typos-cli
+
+. "$HOME"/.nvm/nvm.sh
+nvm exec 22 npm update -g @google/gemini-cli
+nvm exec 22 npm update -g @openai/codex

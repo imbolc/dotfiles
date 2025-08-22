@@ -10,17 +10,20 @@ if lsof "$dst" >/dev/null 2>&1; then
     exit 1
 fi
 
+vim --version
 
 arch=$(uname -m)
 case $arch in
-    x86_64) filename="nvim-linux-x86_64.appimage";;
-    aarch64|arm*) filename="nvim-linux-arm64.appimage";;
-    *) echo "Unsupported architecture: $arch"; exit 1;;
+x86_64) filename="nvim-linux-x86_64.appimage" ;;
+aarch64 | arm*) filename="nvim-linux-arm64.appimage" ;;
+*)
+    echo "Unsupported architecture: $arch"
+    exit 1
+    ;;
 esac
 curl -L "https://github.com/neovim/neovim/releases/latest/download/$filename" -o "$tmp"
-
 
 sudo mv $tmp $dst
 chmod +x $dst
 
-echo ok
+vim --version
