@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+xsct >/dev/null 2>&1 || sudo apt install -y xsct
+
+theme dark
+brightness min
