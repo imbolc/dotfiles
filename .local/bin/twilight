@@ -3,5 +3,5 @@
 xsct >/dev/null 2>&1 || sudo apt install -y xsct
 
 theme dark
-xsct 2500
-brightness min
+xsct 4500
+brightness mid
