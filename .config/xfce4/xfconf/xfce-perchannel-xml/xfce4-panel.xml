@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=8;x=640;y=787"/>
+      <property name="length" type="double" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="0"/>
+      <property name="size" type="uint" value="21"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="5"/>
+        <value type="int" value="11"/>
+        <value type="int" value="7"/>
+        <value type="int" value="8"/>
+        <value type="int" value="10"/>
+        <value type="int" value="6"/>
+        <value type="int" value="12"/>
+        <value type="int" value="4"/>
+      </property>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="applicationsmenu">
+      <property name="show-button-title" type="bool" value="false"/>
+    </property>
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="sort-order" type="uint" value="4"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="false"/>
+      <property name="window-scrolling" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="true"/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="false"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “xportal” active: xportal (77%)"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="ibus-ui-gtk3"/>
+        <value type="string" value="ibus panel"/>
+        <value type="string" value="kazam"/>
+        <value type="string" value="wi-fi network connection “kurut-5g” active: kurut-5g (72%)"/>
+        <value type="string" value="wi-fi network connection “kurut-5g” active: kurut-5g (67%)"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="wi-fi network connection “kurut-5g” active: kurut-5g (66%)"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="Electrum"/>
+        <value type="string" value="transmission"/>
+        <value type="string" value="redshift"/>
+        <value type="string" value="remmina-icon"/>
+        <value type="string" value="Mira1"/>
+        <value type="string" value="electrum"/>
+        <value type="string" value="vlc"/>
+        <value type="string" value="SimpleScreenRecorder"/>
+        <value type="string" value="zoom"/>
+        <value type="string" value="qBittorrent"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="Skype1"/>
+        <value type="string" value="TelegramDesktop"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="icon-size" type="int" value="0"/>
+      <property name="hidden-items" type="array">
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="flameshot"/>
+      </property>
+      <property name="symbolic-icons" type="bool" value="false"/>
+      <property name="menu-is-primary" type="bool" value="false"/>
+      <property name="hide-new-items" type="bool" value="false"/>
+      <property name="single-row" type="bool" value="false"/>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance1000598;chromium.instance1129419;chromium.instance1133562;chromium.instance1151782;chromium.instance1160882;chromium.instance1244377;chromium.instance1248339;chromium.instance1346814;chromium.instance1446;chromium.instance144843;chromium.instance1453;chromium.instance1486193;chromium.instance1503742;chromium.instance1545;chromium.instance164786;chromium.instance1665;chromium.instance17022;chromium.instance1703405;chromium.instance1706319;chromium.instance1717;chromium.instance1720;chromium.instance1740;chromium.instance1748;chromium.instance1754;chromium.instance1762;chromium.instance1775;chromium.instance1790;chromium.instance1791;chromium.instance1799;chromium.instance1811;chromium.instance1813536;chromium.instance1830;chromium.instance1831074;chromium.instance1842266;chromium.instance1848;chromium.instance1860;chromium.instance1861;chromium.instance1868;chromium.instance1872;chromium.instance1876;chromium.instance188201;chromium.instance1892;chromium.instance1906;chromium.instance1926;chromium.instance1929;chromium.instance1937;chromium.instance1938;chromium.instance1950;chromium.instance1957;chromium.instance1972;chromium.instance1976;chromium.instance1982;chromium.instance1983;chromium.instance1988;chromium.instance1991;chromium.instance1994;chromium.instance1997;chromium.instance1998;chromium.instance2019;chromium.instance2021;chromium.instance2031;chromium.instance2035;chromium.instance2092042;chromium.instance2113113;chromium.instance2113250;chromium.instance2126672;chromium.instance2168372;chromium.instance2235471;chromium.instance2292479;chromium.instance2428942;chromium.instance2467671;chromium.instance2491076;chromium.instance2536058;chromium.instance2604314;chromium.instance265306;chromium.instance2661665;chromium.instance2822928;chromium.instance2849329;chromium.instance2858522;chromium.instance2901414;chromium.instance293736;chromium.instance317962;chromium.instance3181610;chromium.instance332062;chromium.instance3356947;chromium.instance3429664;chromium.instance3455747;chromium.instance3553561;chromium.instance3592961;chromium.instance362242;chromium.instance3627865;chromium.instance3637577;chromium.instance3681433;chromium.instance3689282;chromium.instance3698344;chromium.instance377291;chromium.instance3877519;chromium.instance400208;chromium.instance4178230;chromium.instance44719;chromium.instance448612;chromium.instance511642;chromium.instance660756;chromium.instance661657;chromium.instance697154;chromium.instance709164;chromium.instance7411;chromium.instance817361;chromium.instance905568;chromium.instance931635;firefox.instance101539;firefox.instance1041001;firefox.instance1136386;firefox.instance1139369;firefox.instance1171722;firefox.instance1187790;firefox.instance1196688;firefox.instance12450;firefox.instance1264283;firefox.instance1266081;firefox.instance1333665;firefox.instance1374097;firefox.instance1390406;firefox.instance1408604;firefox.instance1416;firefox.instance1426050;firefox.instance1471356;firefox.instance1489660;firefox.instance1582190;firefox.instance1653635;firefox.instance1660;firefox.instance1662;firefox.instance1667;firefox.instance1673;firefox.instance1684;firefox.instance1690;firefox.instance1742;firefox.instance1755014;firefox.instance179405;firefox.instance1837571;firefox.instance1876584;firefox.instance1919436;firefox.instance1949677;firefox.instance1955575;firefox.instance1980927;firefox.instance2074895;firefox.instance2103571;firefox.instance2192588;firefox.instance2195955;firefox.instance2206440;firefox.instance2214245;firefox.instance2220945;firefox.instance2330217;firefox.instance2356866;firefox.instance2492744;firefox.instance2583287;firefox.instance2604480;firefox.instance26307;firefox.instance2677472;firefox.instance270175;firefox.instance271683;firefox.instance2726414;firefox.instance2758590;firefox.instance2833148;firefox.instance2907683;firefox.instance2946002;firefox.instance3052895;firefox.instance3141250;firefox.instance337956;firefox.instance3394969;firefox.instance3396942;firefox.instance3398258;firefox.instance3398476;firefox.instance3454552;firefox.instance3490556;firefox.instance3495048;firefox.instance3497251;firefox.instance3510238;firefox.instance356016;firefox.instance35844;firefox.instance3634638;firefox.instance3640147;firefox.instance3767978;firefox.instance3767999;firefox.instance3845187;firefox.instance3896864;firefox.instance3934865;firefox.instance3943383;firefox.instance4001647;firefox.instance4019217;firefox.instance4082714;firefox.instance4157306;firefox.instance4186580;firefox.instance44997;firefox.instance460690;firefox.instance492938;firefox.instance536240;firefox.instance575193;firefox.instance655232;firefox.instance77495;firefox.instance778811;firefox.instance79549;firefox.instance839526;firefox.instance85657;firefox.instance86876;firefox.instance874062;firefox.instance898081;firefox.instance900515;firefox.instance92019;firefox.instance931526;firefox.instance_1_10072;firefox.instance_1_1074;firefox.instance_1_10781;firefox.instance_1_112;firefox.instance_1_11353;firefox.instance_1_114;firefox.instance_1_11473;firefox.instance_1_1155;firefox.instance_1_11994;firefox.instance_1_1222;firefox.instance_1_124;firefox.instance_1_1256;firefox.instance_1_1298;firefox.instance_1_1307;firefox.instance_1_1313;firefox.instance_1_13282;firefox.instance_1_1331;firefox.instance_1_13343;firefox.instance_1_13489;firefox.instance_1_143;firefox.instance_1_144;firefox.instance_1_1499;firefox.instance_1_1551;firefox.instance_1_1572;firefox.instance_1_1592;firefox.instance_1_1715;firefox.instance_1_1764;firefox.instance_1_1849;firefox.instance_1_1872;firefox.instance_1_1898;firefox.instance_1_1940;firefox.instance_1_2013;firefox.instance_1_2014;firefox.instance_1_2031;firefox.instance_1_2084;firefox.instance_1_2091;firefox.instance_1_2135;firefox.instance_1_2140;firefox.instance_1_2172;firefox.instance_1_2182;firefox.instance_1_2449;firefox.instance_1_2576;firefox.instance_1_2587;firefox.instance_1_261;firefox.instance_1_2625;firefox.instance_1_2677;firefox.instance_1_2713;firefox.instance_1_2731;firefox.instance_1_2779;firefox.instance_1_2893;firefox.instance_1_2956;firefox.instance_1_2987;firefox.instance_1_3080;firefox.instance_1_324;firefox.instance_1_3271;firefox.instance_1_3289;firefox.instance_1_3382;firefox.instance_1_3446;firefox.instance_1_3537;firefox.instance_1_3592;firefox.instance_1_3642;firefox.instance_1_3649;firefox.instance_1_368;firefox.instance_1_3783;firefox.instance_1_3863;firefox.instance_1_3951;firefox.instance_1_3964;firefox.instance_1_4011;firefox.instance_1_4245;firefox.instance_1_4266;firefox.instance_1_432;firefox.instance_1_4351;firefox.instance_1_4466;firefox.instance_1_450;firefox.instance_1_4535;firefox.instance_1_4599;firefox.instance_1_4602;firefox.instance_1_461;firefox.instance_1_4621;firefox.instance_1_4746;firefox.instance_1_4830;firefox.instance_1_4838;firefox.instance_1_4860;firefox.instance_1_50;firefox.instance_1_501;firefox.instance_1_5218;firefox.instance_1_5312;firefox.instance_1_5341;firefox.instance_1_5439;firefox.instance_1_5512;firefox.instance_1_5763;firefox.instance_1_5816;firefox.instance_1_5822;firefox.instance_1_5833;firefox.instance_1_5882;firefox.instance_1_5927;firefox.instance_1_5931;firefox.instance_1_5989;firefox.instance_1_6017;firefox.instance_1_605;firefox.instance_1_61;firefox.instance_1_612;firefox.instance_1_6145;firefox.instance_1_6184;firefox.instance_1_62;firefox.instance_1_6263;firefox.instance_1_6347;firefox.instance_1_6390;firefox.instance_1_64;firefox.instance_1_6569;firefox.instance_1_675;firefox.instance_1_6864;firefox.instance_1_7098;firefox.instance_1_7261;firefox.instance_1_7348;firefox.instance_1_7382;firefox.instance_1_751;firefox.instance_1_7521;firefox.instance_1_7560;firefox.instance_1_7724;firefox.instance_1_7904;firefox.instance_1_7945;firefox.instance_1_7988;firefox.instance_1_8145;firefox.instance_1_8271;firefox.instance_1_8272;firefox.instance_1_83;firefox.instance_1_8367;firefox.instance_1_84;firefox.instance_1_8487;firefox.instance_1_85;firefox.instance_1_851;firefox.instance_1_8510;firefox.instance_1_8577;firefox.instance_1_8594;firefox.instance_1_8606;firefox.instance_1_8631;firefox.instance_1_869;firefox.instance_1_8934;firefox.instance_1_90;firefox.instance_1_911;firefox.instance_1_929;firefox.instance_1_9347;firefox.instance_1_940;firefox.instance_1_9466;firefox.instance_1_963;TelegramDesktop;vlc"/>
+      <property name="enable-wnck" type="bool" value="true"/>
+      <property name="blacklisted-players" type="string" value="vlc"/>
+    </property>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="Sans 10"/>
+      <property name="tooltip-format" type="string" value="%x"/>
+      <property name="mode" type="uint" value="2"/>
+      <property name="digital-time-format" type="string" value="%H:%M"/>
+    </property>
+    <property name="plugin-5" type="string" value="cpugraph"/>
+    <property name="plugin-7" type="string" value="systemload">
+      <property name="swap" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+      <property name="network" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+      <property name="uptime" type="empty">
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+      <property name="memory" type="empty">
+        <property name="color" type="array">
+          <value type="double" value="0.10980392156862745"/>
+          <value type="double" value="0.44313725490196076"/>
+          <value type="double" value="0.84705882352941175"/>
+          <value type="double" value="1"/>
+        </property>
+        <property name="label" type="string" value=""/>
+      </property>
+      <property name="cpu" type="empty">
+        <property name="color" type="array">
+          <value type="double" value="0.89803921568627454"/>
+          <value type="double" value="0.6470588235294118"/>
+          <value type="double" value="0.039215686274509803"/>
+          <value type="double" value="1"/>
+        </property>
+        <property name="label" type="string" value=""/>
+        <property name="enabled" type="bool" value="false"/>
+      </property>
+    </property>
+    <property name="plugin-11" type="string" value="xfce4-sensors-plugin"/>
+    <property name="plugin-4" type="string" value="battery"/>
+  </property>
+</channel>
