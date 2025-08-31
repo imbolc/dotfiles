@@ -6,33 +6,32 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 
-sudo apt install -y libssl-dev libfontconfig-dev # for Alacritty
-
 rustup update
 
-cargo install --locked alacritty # Terminal emulator
-cargo install --locked bat
-cargo install --locked cargo-expand
-cargo install --locked cargo-generate
-cargo install --locked cargo-limit
-cargo install --locked cargo-machete
-cargo install --locked cargo-onefile
-cargo install --locked cargo-sort
-cargo install --locked cargo-tree
-cargo install --locked cargo-watch
-cargo install --locked comrak
-cargo install --locked fd-find
-cargo install --locked git-delta
-cargo install --locked jaq
-cargo install --locked ripgrep
-cargo install --locked rust-script
-cargo install --locked skim
-cargo install --locked sleek
-cargo install --locked sqlx-cli
-cargo install --locked stylua
-cargo install --locked taplo-cli
-cargo install --locked tokei
-cargo install --locked typos-cli
+sudo apt install -y libssl-dev libfontconfig-dev # for Alacritty
+cargo install --locked alacritty                 # Terminal emulator
+
+cargo install --locked bat            # Better cat
+cargo install --locked cargo-expand   # Expands macros
+cargo install --locked cargo-generate # Project generator from template
+cargo install --locked cargo-limit    # cargo lcheck etc
+cargo install --locked cargo-machete  # Finds unused dependencies
+cargo install --locked cargo-sort     # Sorts Cargo.toml dependencies
+cargo install --locked cargo-tree     # Shows dependency tree
+cargo install --locked cargo-watch    # Watches for changes and runs commands
+cargo install --locked comrak         # Markdown renderer
+cargo install --locked fd-find        # Fast and user-friendly find alternative
+cargo install --locked git-delta      # Viewer for git and diff output
+cargo install --locked jaq            # JSON filtering (jq clone)
+cargo install --locked ripgrep        # Better grep
+cargo install --locked rust-script    # Runs Rust files as scripts
+cargo install --locked skim           # Command-line fuzzy finder
+cargo install --locked sleek          # SQL formatter
+cargo install --locked sqlx-cli       # CLI for sqlx crate
+cargo install --locked stylua         # Opinionated Lua formatter
+cargo install --locked taplo-cli      # TOML formatter
+cargo install --locked tokei          # Code statistics generator
+cargo install --locked typos-cli      # Spell checker
 
 . "$HOME"/.nvm/nvm.sh
 nvm exec 22 npm update -g @google/gemini-cli
