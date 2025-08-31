@@ -9,29 +9,30 @@ sudo apt autoremove -y
 sudo apt install -y libssl-dev libfontconfig-dev # for Alacritty
 
 rustup update
-cargo install --locked \
-    alacritty \
-    bat \
-    cargo-expand \
-    cargo-generate \
-    cargo-limit \
-    cargo-machete \
-    cargo-onefile \
-    cargo-sort \
-    cargo-tree \
-    cargo-watch \
-    comrak \
-    fd-find \
-    git-delta \
-    jaq \
-    ripgrep \
-    rust-script \
-    skim \
-    sleek \
-    sqlx-cli \
-    stylua \
-    taplo-cli \
-    typos-cli
+
+cargo install --locked alacritty # Terminal emulator
+cargo install --locked bat
+cargo install --locked cargo-expand
+cargo install --locked cargo-generate
+cargo install --locked cargo-limit
+cargo install --locked cargo-machete
+cargo install --locked cargo-onefile
+cargo install --locked cargo-sort
+cargo install --locked cargo-tree
+cargo install --locked cargo-watch
+cargo install --locked comrak
+cargo install --locked fd-find
+cargo install --locked git-delta
+cargo install --locked jaq
+cargo install --locked ripgrep
+cargo install --locked rust-script
+cargo install --locked skim
+cargo install --locked sleek
+cargo install --locked sqlx-cli
+cargo install --locked stylua
+cargo install --locked taplo-cli
+cargo install --locked tokei
+cargo install --locked typos-cli
 
 . "$HOME"/.nvm/nvm.sh
 nvm exec 22 npm update -g @google/gemini-cli
