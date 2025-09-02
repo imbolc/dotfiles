@@ -163,9 +163,9 @@
     </property>
   </property>
   <property name="Default" type="empty">
-    <property name="HDMI-0" type="string" value="BenQ 32&quot;">
+    <property name="DP-0" type="string" value="BenQ 32&quot;">
       <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="d3234ec2b5d5050dc60d00cafdab2f8077cfb833"/>
+      <property name="EDID" type="string" value="146652f721bc47a5c6946e43c2b06ee4420d03ee"/>
       <property name="Resolution" type="string" value="3840x2160"/>
       <property name="RefreshRate" type="double" value="60"/>
       <property name="Rotation" type="int" value="0"/>

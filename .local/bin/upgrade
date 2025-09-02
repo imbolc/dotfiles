@@ -16,6 +16,7 @@ cargo install --locked cargo-expand   # Expands macros
 cargo install --locked cargo-generate # Project generator from template
 cargo install --locked cargo-limit    # cargo lcheck etc
 cargo install --locked cargo-machete  # Finds unused dependencies
+cargo install --locked cargo-shear    # Finds unused dependencies
 cargo install --locked cargo-sort     # Sorts Cargo.toml dependencies
 cargo install --locked cargo-tree     # Shows dependency tree
 cargo install --locked cargo-watch    # Watches for changes and runs commands
@@ -34,5 +35,5 @@ cargo install --locked tokei          # Code statistics generator
 cargo install --locked typos-cli      # Spell checker
 
 . "$HOME"/.nvm/nvm.sh
-nvm exec 22 npm update -g @google/gemini-cli
-nvm exec 22 npm update -g @openai/codex
+nvm exec 22 npm install -g @google/gemini-cli@latest
+nvm exec 22 npm install -g @openai/codex@latest
