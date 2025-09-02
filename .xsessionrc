@@ -1,1 +1,19 @@
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# Disable the screensaver from activating.
+xset s off
+
+# Disable Display Power Management Signaling (DPMS) to prevent monitor sleep.
+xset -dpms
+
+# Prevent the screen from blanking.
+xset s noblank
+
+# Disable the system bell/beep.
+xset b off
+
+
+# Set the GTK scaling factor explicitly to 2x
+export GDK_SCALE=2
+
+# Set the QT scaling factor to 2x
+export QT_SCALE_FACTOR=2
+
