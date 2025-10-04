@@ -148,4 +148,11 @@
     </property>
   </property>
   <property name="last-settings-migration-version" type="uint" value="1"/>
+  <property name="desktop-icons" type="empty">
+    <property name="file-icons" type="empty">
+      <property name="migrated-4.19" type="array">
+        <value type="string" value="e87fd98d6550c8f40f5b9befacc5400016538575"/>
+      </property>
+    </property>
+  </property>
 </channel>

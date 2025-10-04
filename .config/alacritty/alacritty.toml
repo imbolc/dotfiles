@@ -1,7 +1,7 @@
-
 [window]
 startup_mode = "Maximized"
 decorations = "none"
+dynamic_title = false
 
 [font]
 size = 24
