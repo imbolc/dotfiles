@@ -138,8 +138,8 @@ if [ -d "${NVM_DIR}" ]; then
 fi
 
 # Android
-# JAVA_HOME=$(update-alternatives --query javac 2>/dev/null | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
-JAVA_HOME="/usr/lib/jvm/jdk-21.0.6-oracle-x64"
+JAVA_HOME=$(update-alternatives --query javac 2>/dev/null | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
+# JAVA_HOME="/usr/lib/jvm/jdk-21.0.6-oracle-x64"
 export JAVA_HOME
 
 export ANDROID_HOME="$HOME/Android/Sdk"
@@ -153,6 +153,11 @@ if [ -d "$ANDROID_HOME/ndk" ] && ls "$ANDROID_HOME/ndk"/* >/dev/null 2>&1; then
     # Set to the last NDK directory (assuming version sorting)
     ANDROID_NDK_HOME=$(find "$ANDROID_HOME/ndk" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)
     export ANDROID_NDK_HOME
+fi
+
+ANDROID_AVD_HOME=$HOME/.config/.android/avd
+if [ -d "${ANDROID_HOME}" ]; then
+    export ANDROID_AVD_HOME
 fi
 
 # Bind Ctrl+R to use skim if it's available (cargo install skim)
@@ -172,4 +177,3 @@ fi
 # if command -v starship >/dev/null 2>&1; then
 #     eval "$(starship init bash)"
 # fi
-

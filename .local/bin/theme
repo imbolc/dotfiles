@@ -3,23 +3,24 @@ set -efu
 
 theme="${1-}"
 if [ "$theme" != "dark" ] && [ "$theme" != "light" ]; then
-	printf '\033[0;31m%s\033[0m\n' "Error: Invalid argument" >&2
-	echo "Usage: $0 [dark|light]" >&2
-	exit 1
+    printf '\033[0;31m%s\033[0m\n' "Error: Invalid argument" >&2
+    echo "Usage: $0 [dark|light]" >&2
+    exit 1
 fi
 
 if [ "$theme" = "dark" ]; then
-	gtk_theme="Adwaita-dark"
-	alacritty_theme="github_dark"
-	bat_config="config-dark"
-	delta_theme="theme-dark"
-	vim_config='vim.opt.background = "dark"\nvim.cmd.colorscheme "PaperColorSlim"'
+    gtk_theme="Adwaita-dark"
+    # alacritty_theme="github_dark"
+    alacritty_theme="one_dark"
+    bat_config="config-dark"
+    delta_theme="theme-dark"
+    vim_config='vim.opt.background = "dark"\nvim.cmd.colorscheme "PaperColorSlim"'
 else
-	gtk_theme="Adwaita"
-	alacritty_theme="solarized_light"
-	bat_config="config-light"
-	delta_theme="theme-light"
-	vim_config='vim.opt.background = "light"\nvim.cmd.colorscheme "PaperColorSlimLight"'
+    gtk_theme="Adwaita"
+    alacritty_theme="solarized_light"
+    bat_config="config-light"
+    delta_theme="theme-light"
+    vim_config='vim.opt.background = "light"\nvim.cmd.colorscheme "PaperColorSlimLight"'
 fi
 
 # GTK

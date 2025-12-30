@@ -165,16 +165,16 @@
   <property name="Default" type="empty">
     <property name="eDP-1" type="string" value="Laptop">
       <property name="Active" type="bool" value="false"/>
-      <property name="EDID" type="string" value="3ed4e4de233b4563b0fffdfdfe9b0483c01db23c"/>
+      <property name="EDID" type="string" value="69d5c203b2347b034f6b2c4b3eeb78acba8474da"/>
     </property>
-    <property name="HDMI-1" type="string" value="BenQ 32&quot;">
+    <property name="HDMI-1-0" type="string" value="BenQ 32&quot;">
       <property name="Active" type="bool" value="true"/>
       <property name="EDID" type="string" value="3dfe0fb29f17f6a21a0ba46b7294138973506ac2"/>
       <property name="Resolution" type="string" value="3840x2160"/>
       <property name="RefreshRate" type="double" value="60"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="false"/>
+      <property name="Primary" type="bool" value="true"/>
       <property name="Scale" type="double" value="1"/>
       <property name="Position" type="empty">
         <property name="X" type="int" value="0"/>
