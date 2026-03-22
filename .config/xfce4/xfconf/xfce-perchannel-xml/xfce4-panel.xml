@@ -51,6 +51,8 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="false"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="notes"/>
+        <value type="string" value="wi-fi network connection “xportal” active: xportal (85%)"/>
         <value type="string" value="wi-fi network connection “xportal” active: xportal (90%)"/>
         <value type="string" value="wi-fi network connection “xportal” active: xportal (78%)"/>
         <value type="string" value="wi-fi network connection “xportal” active: xportal (77%)"/>
@@ -64,6 +66,7 @@
         <value type="string" value="wi-fi network connection “kurut-5g” active: kurut-5g (66%)"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="tray-icon tray app"/>
         <value type="string" value="AmneziaVPN"/>
         <value type="string" value="Electrum"/>
         <value type="string" value="transmission"/>
@@ -101,11 +104,13 @@
     </property>
     <property name="plugin-10" type="string" value="notification-plugin"/>
     <property name="plugin-12" type="string" value="clock">
-      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-layout" type="uint" value="1"/>
       <property name="digital-time-font" type="string" value="Sans 10"/>
-      <property name="tooltip-format" type="string" value="%x"/>
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
       <property name="mode" type="uint" value="2"/>
       <property name="digital-time-format" type="string" value="%H:%M"/>
+      <property name="digital-date-font" type="string" value="Sans 7"/>
+      <property name="digital-date-format" type="string" value="%a %d %b"/>
     </property>
     <property name="plugin-7" type="string" value="systemload">
       <property name="swap" type="empty">
@@ -218,6 +223,16 @@
       <property name="show-notifications" type="bool" value="false"/>
       <property name="display-tooltip-icon" type="bool" value="false"/>
       <property name="group-policy" type="uint" value="0"/>
+    </property>
+    <property name="notes" type="empty">
+      <property name="global" type="empty">
+        <property name="version" type="string" value="1.11.1"/>
+        <property name="background-color" type="string" value="#F2F1EF"/>
+        <property name="skip-taskbar-hint" type="bool" value="false"/>
+      </property>
+      <property name="new-window" type="empty">
+        <property name="always-on-top" type="bool" value="false"/>
+      </property>
     </property>
   </property>
 </channel>

@@ -1,11 +1,11 @@
 [alias]
-b = "lbuild"
-c = "lcheck"
-t = "ltest"
-r = "lrun"
-w = "watch -x lcheck"
-wr = "watch -x lrun"
-rl = "lrun --example lab"
+b = "build"
+c = "check"
+t = "test"
+r = "run"
+w = "watch -x check"
+wr = "watch -x run"
+rl = "run --example lab"
 
 [target.aarch64-unknown-linux-musl]
 linker = "aarch64-linux-musl-gcc"
