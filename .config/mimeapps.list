@@ -4,14 +4,16 @@ text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop
+x-scheme-handler/mailto=xfce4-mail-reader.desktop
 
 [Added Associations]
 audio/mpeg=vlc.desktop;audacity.desktop;
 video/mp4=vlc.desktop;org.xfce.Parole.desktop;
 image/jpeg=org.xfce.ristretto.desktop;krita_jpeg.desktop;
-image/png=krita_png.desktop;
+image/png=org.xfce.ristretto.desktop;krita_png.desktop;
 text/csv=libreoffice-calc.desktop;
 video/x-matroska=vlc.desktop;
 video/x-msvideo=vlc.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop;
 application/epub+zip=mupdf.desktop;
+x-scheme-handler/mailto=xfce4-mail-reader.desktop;

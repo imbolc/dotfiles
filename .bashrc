@@ -6,6 +6,8 @@ case $- in
 *) return ;;
 esac
 
+TERM=xterm-256color
+
 # Don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 
@@ -177,3 +179,6 @@ fi
 # if command -v starship >/dev/null 2>&1; then
 #     eval "$(starship init bash)"
 # fi
+
+# sqlx 0.9 uses `anonymous` user by default
+export PGUSER="$USER"

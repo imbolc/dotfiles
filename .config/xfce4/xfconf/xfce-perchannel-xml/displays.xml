@@ -126,42 +126,6 @@
   <property name="Notify" type="int" value="1"/>
   <property name="IdentityPopups" type="bool" value="false"/>
   <property name="AutoEnableProfiles" type="int" value="3"/>
-  <property name="cb4e5208b4cd87268b208e49452ed6e89a68e0b8" type="string" value="32">
-    <property name="eDP-1" type="string" value="Laptop">
-      <property name="Active" type="bool" value="false"/>
-      <property name="EDID" type="string" value="69d5c203b2347b034f6b2c4b3eeb78acba8474da"/>
-      <property name="Resolution" type="string" value="2560x1600"/>
-      <property name="RefreshRate" type="double" value="165.00390571933161"/>
-      <property name="Rotation" type="int" value="0"/>
-      <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="false"/>
-      <property name="Scale" type="empty">
-        <property name="X" type="double" value="1"/>
-        <property name="Y" type="double" value="1"/>
-      </property>
-      <property name="Position" type="empty">
-        <property name="X" type="int" value="0"/>
-        <property name="Y" type="int" value="0"/>
-      </property>
-    </property>
-    <property name="DP-1-0" type="string" value="BenQ 32&quot;">
-      <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="d3234ec2b5d5050dc60d00cafdab2f8077cfb833"/>
-      <property name="Resolution" type="string" value="3840x2160"/>
-      <property name="RefreshRate" type="double" value="29.969696969696969"/>
-      <property name="Rotation" type="int" value="0"/>
-      <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="true"/>
-      <property name="Scale" type="empty">
-        <property name="X" type="double" value="1"/>
-        <property name="Y" type="double" value="1"/>
-      </property>
-      <property name="Position" type="empty">
-        <property name="X" type="int" value="0"/>
-        <property name="Y" type="int" value="0"/>
-      </property>
-    </property>
-  </property>
   <property name="Default" type="empty">
     <property name="eDP-1" type="string" value="Laptop">
       <property name="Active" type="bool" value="false"/>
@@ -169,7 +133,27 @@
     </property>
     <property name="HDMI-1-0" type="string" value="BenQ 32&quot;">
       <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="3dfe0fb29f17f6a21a0ba46b7294138973506ac2"/>
+      <property name="EDID" type="string" value="d3234ec2b5d5050dc60d00cafdab2f8077cfb833"/>
+      <property name="Resolution" type="string" value="3840x2160"/>
+      <property name="RefreshRate" type="double" value="60"/>
+      <property name="Rotation" type="int" value="0"/>
+      <property name="Reflection" type="string" value="0"/>
+      <property name="Primary" type="bool" value="true"/>
+      <property name="Scale" type="double" value="1"/>
+      <property name="Position" type="empty">
+        <property name="X" type="int" value="0"/>
+        <property name="Y" type="int" value="0"/>
+      </property>
+    </property>
+  </property>
+  <property name="cb4e5208b4cd87268b208e49452ed6e89a68e0b8" type="empty">
+    <property name="eDP-1" type="string" value="Laptop">
+      <property name="Active" type="bool" value="false"/>
+      <property name="EDID" type="string" value="69d5c203b2347b034f6b2c4b3eeb78acba8474da"/>
+    </property>
+    <property name="HDMI-1-0" type="string" value="BenQ 32&quot;">
+      <property name="Active" type="bool" value="true"/>
+      <property name="EDID" type="string" value="d3234ec2b5d5050dc60d00cafdab2f8077cfb833"/>
       <property name="Resolution" type="string" value="3840x2160"/>
       <property name="RefreshRate" type="double" value="60"/>
       <property name="Rotation" type="int" value="0"/>
