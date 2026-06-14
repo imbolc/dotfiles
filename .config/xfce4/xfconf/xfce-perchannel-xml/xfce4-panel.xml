@@ -10,7 +10,7 @@
       <property name="length" type="double" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="0"/>
-      <property name="size" type="uint" value="21"/>
+      <property name="size" type="uint" value="23"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="2"/>
@@ -51,6 +51,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="false"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="polkit-mate-authentication-agent-1"/>
         <value type="string" value="notes"/>
         <value type="string" value="wi-fi network connection “xportal” active: xportal (85%)"/>
         <value type="string" value="wi-fi network connection “xportal” active: xportal (90%)"/>

@@ -33,6 +33,9 @@ cargo install --locked taplo-cli      # TOML formatter
 cargo install --locked tokei          # Code statistics generator
 cargo install --locked typos-cli      # Spell checker
 
+cargo install --git https://github.com/rtk-ai/rtk # Rust Token Killer
+pipx install --python python3.13 "headroom-ai[all]"
+
 . "$HOME"/.nvm/nvm.sh
 nvm exec 22 npm install -g @google/gemini-cli@latest
 nvm exec 22 npm install -g @openai/codex@latest
