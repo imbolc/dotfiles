@@ -4,7 +4,7 @@ decorations = "none"
 dynamic_title = false
 
 [font]
-size = 12
+size = 23
 italic = { style = "Regular" }
 bold_italic = { style = "Bold" }
 

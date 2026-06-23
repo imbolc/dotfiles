@@ -12,8 +12,8 @@ xset b off
 
 
 # Set the GTK scaling factor explicitly to 2x
-# export GDK_SCALE=2
+export GDK_SCALE=2
 
 # Set the QT scaling factor to 2x
-# export QT_SCALE_FACTOR=2
+export QT_SCALE_FACTOR=2
 

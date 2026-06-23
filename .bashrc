@@ -182,4 +182,3 @@ fi
 
 # sqlx 0.9 uses `anonymous` user by default
 export PGUSER="$USER"
-export PATH=$PATH:$HOME/.local/bin
