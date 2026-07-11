@@ -17,3 +17,4 @@ video/x-msvideo=vlc.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop;
 application/epub+zip=mupdf.desktop;
 x-scheme-handler/mailto=xfce4-mail-reader.desktop;
+application/pdf=atril.desktop;com.github.xournalpp.xournalpp.desktop;com.google.Chrome.desktop;
