@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Dependency Update"
+  short_description: "Update Rust crates while preserving repo conventions"
+  default_prompt: "Use $rust-dependency-update to update this Rust workspace's dependencies to latest release-compatible versions."
