@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Code"
+  short_description: "Issue-only review of current git changes."
+  default_prompt: "Use $review-code to review the current repository changes."

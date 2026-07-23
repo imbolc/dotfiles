@@ -1,0 +1,1 @@
+- Use `.agents` folder for skills
