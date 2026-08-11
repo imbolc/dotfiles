@@ -67,6 +67,8 @@
         <value type="string" value="wi-fi network connection “kurut-5g” active: kurut-5g (66%)"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="tray-icon tray app 3665673-1"/>
+        <value type="string" value="tray-icon tray app 3417326-1"/>
         <value type="string" value="tray-icon tray app"/>
         <value type="string" value="AmneziaVPN"/>
         <value type="string" value="Electrum"/>
