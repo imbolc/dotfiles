@@ -1,5 +1,5 @@
 ---
-name: review-address-findings
+name: address-review
 description:
   Validate and address findings recorded in the repository-root `.review.md`,
   apply agreed fixes, explain rejected findings, retain unresolved work, and
@@ -7,7 +7,7 @@ description:
   respond to an existing review produced by a review skill.
 ---
 
-# Address Review Findings
+# Address Review
 
 ## Preflight
 
