@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Repository"
+  short_description: "Issue-only review of the entire repository."
+  default_prompt: "Use $review-repo to review the entire current repository."

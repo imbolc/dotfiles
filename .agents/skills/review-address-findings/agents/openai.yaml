@@ -1,0 +1,4 @@
+interface:
+  display_name: "Address Review Findings"
+  short_description: "Address findings stored in .review.md."
+  default_prompt: "Use $review-address-findings to validate and address all findings in .review.md."

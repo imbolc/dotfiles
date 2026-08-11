@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Commit"
+  short_description: "Issue-only review of a selected commit."
+  default_prompt: "Use $review-commit to review the specified commit, or HEAD if none is specified."
