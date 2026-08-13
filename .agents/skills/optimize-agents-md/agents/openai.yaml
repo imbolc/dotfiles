@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimize AGENTS.md"
+  short_description: "Reduce persistent agent instruction cost"
+  default_prompt: "Use $optimize-agents-md to review and streamline the applicable AGENTS.md instruction hierarchy."
