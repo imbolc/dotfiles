@@ -8,6 +8,19 @@
   different output. Do not modify an approved command in a way that unnecessarily
   requires new approval; for example, prefer an approved full test suite over an
   unapproved targeted test.
+- Before the first permission request, identify every foreseeable operation in
+  the current task that needs the same permission. Batch those operations into
+  one request when they can run safely together, and list the full scope in that
+  request. Do not request the same permission separately for items already known,
+  such as querying one dependency at a time.
+
+## External data
+
+- Separate remote acquisition from local processing. If a remote response may
+  be searched, parsed, or inspected more than once, save it to a task-specific
+  temporary file on the first request and reuse that file. Re-fetch only when
+  freshness is required, the response varies by request, the source streams
+  data, or storing it would expose sensitive data.
 
 ## Technical writing
 
