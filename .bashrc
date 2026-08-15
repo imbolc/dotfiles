@@ -72,6 +72,35 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Open a project in a named Tmux session
+project() {
+    [ "$#" -eq 1 ] || {
+        printf 'usage: project PROJECT\n' >&2
+        return 2
+    }
+
+    [ -d "$HOME/proj/$1" ] || {
+        printf 'No such project: %s\n' "$HOME/proj/$1" >&2
+        return 1
+    }
+
+    tmux new-session -A -s "$1" -c "$HOME/proj/$1"
+}
+_project_complete() {
+    local cur dir name
+    cur=${COMP_WORDS[COMP_CWORD]}
+
+    COMPREPLY=()
+    for dir in "$HOME"/proj/*; do
+        [ -d "$dir" ] || continue
+        name=${dir##*/}
+        case $name in
+        "$cur"*) COMPREPLY+=("$name") ;;
+        esac
+    done
+}
+complete -F _project_complete project
+
 # Cargo
 . "$HOME/.cargo/env"
 
