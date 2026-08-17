@@ -13,6 +13,13 @@
   one request when they can run safely together, and list the full scope in that
   request. Do not request the same permission separately for items already known,
   such as querying one dependency at a time.
+- In goal mode or another multi-turn unattended workflow, treat the entire
+  active goal as the current task for permission planning. Assume the user is
+  unlikely to be present after the workflow starts. Before starting the loop,
+  batch every foreseeable permission needed across all iterations, models, and
+  completion steps. During the loop, reuse approved command forms and do not ask
+  again per iteration. Request new permission only for an unforeseeable
+  operation with no safe, in-scope, already-approved alternative.
 
 ## External data
 
