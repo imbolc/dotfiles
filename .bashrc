@@ -211,3 +211,6 @@ fi
 
 # sqlx 0.9 uses `anonymous` user by default
 export PGUSER="$USER"
+
+# secret env variables
+[ -r "$HOME/.bash_secrets.sh" ] && . "$HOME/.bash_secrets.sh"
