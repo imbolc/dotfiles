@@ -33,6 +33,9 @@ Use the repository's normal shell, Git, and code-discovery conventions. Prefer
 available structured code-search or graph tools for finding related or
 duplicated code; fall back to text search when needed.
 
+Review by static inspection. Do not run tests, builds, linters, formatters, or
+other project checks; assume they pass.
+
 ## Review Scope
 
 Report only actionable issues in these categories:
