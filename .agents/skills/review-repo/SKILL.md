@@ -30,6 +30,9 @@ code-discovery conventions. Prefer available structured code-search or graph
 tools for architecture, call relationships, and duplicated code; fall back to
 text search when needed.
 
+Review by static inspection. Do not run tests, builds, linters, formatters, or
+other project checks; assume they pass.
+
 ## Review Scope
 
 Report only actionable issues in these categories:
