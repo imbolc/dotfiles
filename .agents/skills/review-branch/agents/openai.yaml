@@ -2,3 +2,5 @@ interface:
   display_name: "Review Branch"
   short_description: "Issue-only review of the current branch."
   default_prompt: "Use $review-branch to review the current branch against its main branch."
+policy:
+  allow_implicit_invocation: false

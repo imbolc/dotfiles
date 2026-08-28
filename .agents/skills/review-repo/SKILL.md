@@ -1,12 +1,17 @@
 ---
 name: review-repo
 description:
-  Review the whole current repository and report only actionable issues. Use
-  when the user asks for a repository-wide audit, full codebase review, broad
-  quality review, or issues beyond a particular branch, commit, or diff.
+  Explicitly invoked review of the whole current repository that reports only
+  actionable issues. Use only when the user manually invokes `$review-repo`;
+  never select it implicitly.
 ---
 
 # Review Repository
+
+## Invocation
+
+Use this skill only when the user explicitly invokes `$review-repo`. Do not
+apply it automatically based on a generic review request.
 
 ## Preflight
 

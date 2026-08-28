@@ -1,13 +1,18 @@
 ---
 name: address-review
 description:
-  Validate and address findings recorded in the repository-root `.review.md`,
-  apply agreed fixes, explain rejected findings, retain unresolved work, and
-  remove resolved entries. Use when the user asks to apply, fix, resolve, or
-  respond to an existing review produced by a review skill.
+  Explicitly invoked workflow that validates and addresses findings in the
+  repository-root `.review.md`. Use only when the user manually invokes
+  `$address-review`; never select it implicitly.
 ---
 
 # Address Review
+
+## Invocation
+
+Use this skill only when the user explicitly invokes `$address-review`. Do not
+apply it automatically based on a generic request to fix or resolve review
+findings.
 
 ## Preflight
 

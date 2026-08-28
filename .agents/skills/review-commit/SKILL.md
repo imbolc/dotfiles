@@ -1,12 +1,17 @@
 ---
 name: review-commit
 description:
-  Review one Git commit and report only actionable issues. Use when the user
-  asks to review a commit, commit hash, revision, HEAD, or the most recent
-  commit without reviewing an entire branch or repository.
+  Explicitly invoked review of one Git commit that reports only actionable
+  issues. Use only when the user manually invokes `$review-commit`; never
+  select it implicitly.
 ---
 
 # Review Commit
+
+## Invocation
+
+Use this skill only when the user explicitly invokes `$review-commit`. Do not
+apply it automatically based on a generic review request.
 
 ## Preflight
 

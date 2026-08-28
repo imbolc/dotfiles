@@ -1,12 +1,17 @@
 ---
 name: review-branch
 description:
-  Review the current Git branch against the repository's main branch and report
-  only actionable issues. Use when the user asks to review a feature branch,
-  branch diff, pull-request-sized change, or all commits on the current branch.
+  Explicitly invoked review of the current Git branch against the repository's
+  main branch that reports only actionable issues. Use only when the user
+  manually invokes `$review-branch`; never select it implicitly.
 ---
 
 # Review Branch
+
+## Invocation
+
+Use this skill only when the user explicitly invokes `$review-branch`. Do not
+apply it automatically based on a generic review request.
 
 ## Preflight
 
