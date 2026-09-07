@@ -1,0 +1,10 @@
+# Wrap prose at the configured line length.
+[MD013]
+reflow = true
+headings = false # Allow headings of any length
+code-blocks = false # Allow code blocks of any width
+
+# Align Markdown table columns for readable source.
+[MD060]
+enabled = true
+style = "aligned"
