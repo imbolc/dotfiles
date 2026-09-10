@@ -8,6 +8,11 @@
   different output. Do not modify an approved command in a way that unnecessarily
   requires new approval; for example, prefer an approved full test suite over an
   unapproved targeted test.
+- Treat cleanup of temporary files you created for the task as already
+  authorized. Verify the exact paths and use narrowly scoped cleanup commands
+  within writable locations.
+- Preserve approved command forms when combining commands would introduce
+  another approval requirement.
 - Before the first permission request, identify every foreseeable operation in
   the current task that needs the same permission. Batch those operations into
   one request when they can run safely together, and list the full scope in that
