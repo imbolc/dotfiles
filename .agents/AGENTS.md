@@ -75,6 +75,8 @@ Never sacrifice the first three goals for brevity.
 - Make code comments explain intent, rationale, invariants, constraints,
   assumptions, or non-obvious behavior. Do not narrate operations already clear
   from the code.
+- Omit trailing periods in single-sentence list items, even when they are
+  complete sentences
 - Never use an em dash (U+2014). Prefer a comma, colon, parentheses, or a separate
   sentence. Use the ASCII hyphen-minus (`-`) only where a hyphen is appropriate.
 
