@@ -8,9 +8,10 @@
   different output. Do not modify an approved command in a way that unnecessarily
   requires new approval; for example, prefer an approved full test suite over an
   unapproved targeted test.
-- Treat cleanup of temporary files you created for the task as already
-  authorized. Verify the exact paths and use narrowly scoped cleanup commands
-  within writable locations.
+- Cleanup of task-created files in `/tmp` or other writable locations is already
+  authorized. Use exact-path `unlink` and `rmdir` without escalation; avoid
+  recursive or forced `rm`. If blocked, leave the files and report their paths
+  instead of requesting permission or bypassing the block
 - Preserve approved command forms when combining commands would introduce
   another approval requirement.
 - Before the first permission request, identify every foreseeable operation in
