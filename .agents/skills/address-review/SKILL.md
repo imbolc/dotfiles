@@ -8,12 +8,6 @@ description:
 
 # Address Review
 
-## Invocation
-
-Use this skill only when the user explicitly invokes `$address-review`. Do not
-apply it automatically based on a generic request to fix or resolve review
-findings.
-
 ## Preflight
 
 Resolve the repository root and read its development instructions.

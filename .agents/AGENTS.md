@@ -10,8 +10,6 @@
   unapproved targeted test.
 - Never request permission or escalation for temporary-file cleanup. Before
   doing so, follow the `tmp-files-cleanup` skill instead.
-- Preserve approved command forms when combining commands would introduce
-  another approval requirement.
 - Before the first permission request, identify every foreseeable operation in
   the current task that needs the same permission. Batch those operations into
   one request when they can run safely together, and list the full scope in that

@@ -47,19 +47,6 @@ Remove or relocate:
 
 Do not remove project context that is necessary to choose the correct action.
 
-Prefer:
-
-```markdown
-- Use POSIX `sh` for scripts. Do not use Bash extensions.
-```
-
-over:
-
-```markdown
-Shell scripts in this project are intended to be portable across different
-environments.
-```
-
 ## Make rules directly actionable
 
 - Write rules as short imperatives.
@@ -71,18 +58,6 @@ environments.
 - Replace vague terms such as "appropriate", "properly", "carefully", or "when
   possible" with explicit conditions.
 - Keep rationale only when it changes how an agent interprets or applies a rule.
-
-Prefer:
-
-```markdown
-- Run `cargo test -p api` after changing `crates/api/`.
-```
-
-over:
-
-```markdown
-- Make sure relevant tests are run after API changes.
-```
 
 ## Scope instructions narrowly
 
@@ -155,33 +130,3 @@ nearly every task.
 8. Verify that commands, paths, references, overrides, and skill triggers remain
    correct.
 9. Report material removals, relocations, extractions, and unresolved conflicts.
-
-## Remove token waste
-
-During review:
-
-- merge overlapping rules;
-- remove repeated qualifiers;
-- replace prose with precise terminology;
-- remove rationale that does not affect decisions;
-- remove headings that add no navigation value;
-- avoid tables unless they express a relationship more compactly than rules;
-- avoid summaries that repeat the file.
-
-Do not shorten instructions until their scope, conditions, or meaning become
-ambiguous.
-
-## Final check
-
-For every rule or section, ask:
-
-1. Can it change an agent decision or action?
-2. Is its scope explicit?
-3. Is its wording unambiguous?
-4. Is it distinct from inherited instructions?
-5. Is it in the shortest form that preserves its meaning?
-6. Are deliberate overrides and exceptions preserved?
-7. If it belongs in a local skill, did I ask the user about extracting it?
-
-Delete, move, or rewrite content when an answer is no, subject to the user's
-authorization.
