@@ -20,7 +20,4 @@ dependencies, and generated files unless repository instructions explicitly
 make them review targets.
 
 Start with repository instructions and architecture, then inspect components and
-their interactions systematically. Use the repository's normal shell, Git, and
-code-discovery conventions. Prefer available structured code-search or graph
-tools for architecture, call relationships, and duplicated code; fall back to
-text search when needed.
+their interactions systematically.

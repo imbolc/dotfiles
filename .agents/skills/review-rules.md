@@ -10,6 +10,10 @@ review work after finding it.
 
 ## Review Method
 
+Follow repository shell, Git, and code-discovery conventions. Prefer available
+structured code-search or graph tools for architecture, call relationships,
+related code, and duplication; fall back to text search.
+
 Review by static inspection. Do not run tests, builds, linters, formatters, or
 other project checks; assume they pass.
 

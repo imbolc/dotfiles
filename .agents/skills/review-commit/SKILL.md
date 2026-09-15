@@ -21,7 +21,3 @@ Review that commit's complete patch, including all parents needed to understand
 the change. Handle a root commit as a diff against an empty tree. Do not include
 later commits, unrelated branch changes, or uncommitted worktree changes. Read
 enough surrounding and related code to validate the commit in context.
-
-Use the repository's normal shell, Git, and code-discovery conventions. Prefer
-available structured code-search or graph tools for finding related or
-duplicated code; fall back to text search when needed.
