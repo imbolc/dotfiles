@@ -15,12 +15,16 @@ if [ "$theme" = "dark" ]; then
     bat_config="config-dark"
     delta_theme="theme-dark"
     vim_config='vim.opt.background = "dark"\nvim.cmd.colorscheme "PaperColorSlim"'
+    terminal_fg="#abb2bf"
+    terminal_bg="#282c34"
 else
     gtk_theme="Adwaita"
     alacritty_theme="solarized_light"
     bat_config="config-light"
     delta_theme="theme-light"
     vim_config='vim.opt.background = "light"\nvim.cmd.colorscheme "PaperColorSlimLight"'
+    terminal_fg="#657b83"
+    terminal_bg="#fdf6e3"
 fi
 
 # GTK
@@ -30,6 +34,14 @@ fi
 cd "$HOME/.config/alacritty"
 ln -sf themes/$alacritty_theme.toml current_theme.toml
 touch alacritty.toml
+
+# Apply default colors to existing and future tmux windows.
+if [ -n "${TMUX-}" ]; then
+    tmux set-option -gw window-style \
+        "fg=$terminal_fg,bg=$terminal_bg"
+    tmux set-option -gw window-active-style \
+        "fg=$terminal_fg,bg=$terminal_bg"
+fi
 
 # Bat
 cd "$HOME/.config/bat"
