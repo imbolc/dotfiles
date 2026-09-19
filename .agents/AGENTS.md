@@ -20,6 +20,11 @@
   before the loop for every iteration, model and completion step. Request more
   permission only for unforeseen operations with no safe, in-scope, approved alternative
 
+## GitHub
+
+- Before communicating with GitHub, read the global `github-communication`
+  skill
+
 ## External data
 
 - Separate remote acquisition from local processing. If a remote response may
