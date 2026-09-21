@@ -1,17 +1,11 @@
 ---
 name: github-communication
 description: >-
-  Use in Codex and other terminal-based coding agents when reading or updating
-  GitHub issues, pull requests, reviews, comments, or other GitHub API resources.
-  Do not use in ChatGPT sessions with a connected GitHub tool.
+  Use when reading or updating GitHub issues, pull requests, reviews, comments,
+  or other GitHub API resources.
 ---
 
 # GitHub communication
-
-Apply these rules only in Codex and other terminal-based coding agents.
-In ChatGPT sessions with a connected GitHub tool, use that tool directly;
-do not require or check for `gh`. The CLI and shell-permission rules below
-do not apply to those sessions.
 
 - Check that `gh` is installed with `gh --version`. If it is unavailable, stop
   the task and report that the GitHub CLI is missing. Do not install it or
