@@ -1,6 +1,6 @@
-- Use `.agents` folder for skills
-- In requirement-dense technical documents, split paragraphs that contain
-  multiple independent requirements. Use bullets for parallel requirements and
-  numbered lists for ordered behavior.
-- In Markdown lists, omit terminal punctuation from fragments. Do not add `and`
-  or `or` to the final item merely to continue a lead-in sentence.
+# Repo instructions
+
+- These is a public repo, ALWAYS ALARM IF YOU FIND ANY SENSITIVE OR PRIVATE DATA
+  IN THERE
+- Use `.agents/skills` folder for agents skills instead of an agent specific
+  folder
