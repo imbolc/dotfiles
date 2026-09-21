@@ -22,10 +22,8 @@
 
 ## GitHub
 
-- In Codex and other terminal-based coding agents, read the global
-  `github-communication` skill before communicating with GitHub
-- In ChatGPT, use the connected GitHub tool; the `github-communication`
-  skill's CLI requirements do not apply
+- Before communicating with GitHub, read the global `github-communication`
+  skill
 
 ## External data
 
