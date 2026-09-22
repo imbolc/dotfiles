@@ -2,19 +2,16 @@
 Show_Labels=false
 Small_Spacings=true
 Use_Bar_UI=3
-Update_Interval=10
-Preferred_Height=440
-Number_Chips=9
+Lines_Size=1
+Update_Interval=5
+Preferred_Height=468
+Number_Chips=12
 
 [Chip0]
-Name=ucsi_source_psy_USBC000:002-0
+Name=thinkpad-0
 Number=0
 
-[Chip1]
-Name=thinkpad-0
-Number=1
-
-[Chip1_Feature2]
+[Chip0_Feature2]
 Address=2
 Name=CPU
 Color=#00B000
@@ -22,7 +19,7 @@ Show=true
 Min=0
 Max=80
 
-[Chip1_Feature3]
+[Chip0_Feature3]
 Address=3
 Name=GPU
 Color=#00B000
@@ -30,12 +27,16 @@ Show=true
 Min=0
 Max=80
 
-[Chip2]
+[Chip1]
 Name=iwlwifi_1-0
+Number=1
+
+[Chip2]
+Name=ucsi_source_psy_USBC000:001-0
 Number=2
 
 [Chip3]
-Name=nvme-400
+Name=BAT0-0
 Number=3
 
 [Chip4]
@@ -43,18 +44,30 @@ Name=acpitz-0
 Number=4
 
 [Chip5]
-Name=ucsi_source_psy_USBC000:001-0
+Name=coretemp-0
 Number=5
 
 [Chip6]
-Name=coretemp-0
+Name=spd5118-0-50
 Number=6
 
 [Chip7]
-Name=BAT0-0
+Name=ucsi_source_psy_USBC000:002-0
 Number=7
 
 [Chip8]
-Name=ACPI
+Name=nvme-400
 Number=8
+
+[Chip9]
+Name=acpi_fan-0
+Number=9
+
+[Chip10]
+Name=ACPI
+Number=10
+
+[Chip11]
+Name=nvidia
+Number=11
 

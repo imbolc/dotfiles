@@ -19,6 +19,7 @@ cargo install --locked cargo-shear    # Finds unused dependencies
 cargo install --locked cargo-sort     # Sorts Cargo.toml dependencies
 cargo install --locked cargo-tree     # Shows dependency tree
 cargo install --locked cargo-watch    # Watches for changes and runs commands
+cargo install --locked dysk           # `df` alternative
 cargo install --locked comrak         # Markdown renderer
 cargo install --locked fd-find        # Fast and user-friendly find alternative
 cargo install --locked git-delta      # Viewer for git and diff output

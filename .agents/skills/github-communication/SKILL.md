@@ -10,7 +10,12 @@ description: >-
 - Check that `gh` is installed with `gh --version`. If it is unavailable, stop
   the task and report that the GitHub CLI is missing. Do not install it or
   substitute another tool without the user's instruction
-- Reuse prefixes approved in the current session
+- Prefer `gh pr` and `gh issue` when they expose all required information. Use
+  `gh api` only for information those commands cannot provide, such as inline
+  review comments
+- Reuse prefixes approved in the current session. Before requesting additional
+  access, check for an already-approved alternative that provides equivalent
+  information, subject to the environment's permission rules
 - Preserve approved Git subcommand prefixes too: `git -c ... commit` does not
   match `git commit`. When skipping hooks is already justified and required
   checks have passed separately, use `git commit --no-verify` instead of
@@ -18,6 +23,7 @@ description: >-
 - Run `gh` directly as a standalone command. Do not attach shell redirection,
   pipes, command substitutions, environment assignments, or shell wrappers.
   These can prevent matching an approved prefix and trigger another prompt
-- Save captured stdout separately and reuse it for further inspection
+- Save captured stdout separately. Reuse saved responses before making another
+  request unless freshness is required
 - For multiline comments and PR descriptions, write the body locally first,
   then pass its path with `--body-file`. Keep file creation separate from `gh`
