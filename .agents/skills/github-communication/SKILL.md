@@ -13,9 +13,14 @@ description: >-
 - Prefer `gh pr` and `gh issue` when they expose all required information. Use
   `gh api` only for information those commands cannot provide, such as inline
   review comments
+- For PR discussions, start with `gh pr view <number> --json comments,reviews`
+  or `gh pr view <number> --comments`. Query inline review comments only when
+  those results do not provide the information needed
 - Reuse prefixes approved in the current session. Before requesting additional
   access, check for an already-approved alternative that provides equivalent
   information, subject to the environment's permission rules
+- For `gh api`, omit query strings when the endpoint and `--paginate` suffice.
+  A `?` in the command can prevent an approved prefix from matching
 - Preserve approved Git subcommand prefixes too: `git -c ... commit` does not
   match `git commit`. When skipping hooks is already justified and required
   checks have passed separately, use `git commit --no-verify` instead of

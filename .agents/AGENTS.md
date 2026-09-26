@@ -18,7 +18,20 @@
   this task needing that permission. Batch those safe to run together, state
   the full scope, and reuse the approval. For goal or unattended workflows, plan
   before the loop for every iteration, model and completion step. Request more
-  permission only for unforeseen operations with no safe, in-scope, approved alternative
+  permission only for unforeseen operations with no safe, in-scope, approved
+  alternative
+
+## Tool output
+
+- Prefer `-q` after `cargo test`, `cargo check`, `cargo clippy`, `git commit`,
+  and `git push`; preserve exit codes and failure diagnostics
+- Use `git status --short` and diffs limited to relevant paths; reserve `--stat`
+  for summaries and `--quiet` for change detection
+- Narrow `rg` by path and pattern, use `rg -l` for filenames, and read relevant
+  `sed -n` ranges; reuse unchanged reads
+- Request only needed `gh --json` fields and filter saved responses locally
+- Capture complete output from noisy tools without quiet flags; show a brief
+  status on success and inspect the full log on failure
 
 ## GitHub
 
