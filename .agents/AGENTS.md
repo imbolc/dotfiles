@@ -7,6 +7,10 @@
 - Before escalating, check the exact command against the current session's
   approved prefixes. Preserve matching prefixes; approval for one subcommand
   does not imply approval for another
+- When reusing an approved command prefix, keep the invocation directly
+  matchable. Avoid shell redirection, assignments or expansion that prevent
+  matching. Capture output through the tool and save logs separately inside
+  the sandbox. Try this simplified invocation before requesting new approval
 - Assume the user may be unavailable. If no approved prefix applies, try the
   sandbox first. Request new approval only after an actual access restriction
   and checking for a safe, in-scope, already-approved alternative. Prefer that
@@ -25,10 +29,12 @@
 
 - Prefer `-q` after `cargo test`, `cargo check`, `cargo clippy`, `git commit`,
   and `git push`; preserve exit codes and failure diagnostics
-- Use `git status --short` and diffs limited to relevant paths; reserve `--stat`
-  for summaries and `--quiet` for change detection
-- Narrow `rg` by path and pattern, use `rg -l` for filenames, and read relevant
-  `sed -n` ranges; reuse unchanged reads
+- Use `git status --short` and path-scoped diffs. For large or unknown-size
+  diffs, inspect `--stat` first, then use `--unified=0` to locate changed
+  lines. Read the full path-scoped patch when its context is needed; use
+  `--quiet` only for change detection
+- Narrow `rg` by path and pattern, use `rg -l` for filenames, and use `rg -n`
+  with bounded `sed -n` ranges to inspect relevant code; reuse unchanged reads
 - Request only needed `gh --json` fields and filter saved responses locally
 - Capture complete output from noisy tools without quiet flags; show a brief
   status on success and inspect the full log on failure
