@@ -2,6 +2,8 @@
 
 ## Tool permissions
 
+- Use only connected GitHub tools for GitHub API operations; do not use `gh`
+  or direct HTTP requests
 - Default to sandbox execution (`use_default`). Decide permissions separately
   for each command; never copy escalation settings from another tool call
 - Before escalating, check the exact command against the current session's
