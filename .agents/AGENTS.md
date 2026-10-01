@@ -35,7 +35,6 @@
   `--quiet` only for change detection
 - Narrow `rg` by path and pattern, use `rg -l` for filenames, and use `rg -n`
   with bounded `sed -n` ranges to inspect relevant code; reuse unchanged reads
-- Request only needed `gh --json` fields and filter saved responses locally
 - Capture complete output from noisy tools without quiet flags; show a brief
   status on success and inspect the full log on failure
 
