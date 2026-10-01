@@ -1,5 +1,6 @@
 # Repo instructions
 
+- Use only GitHub capabilities for all GitHub communications
 - These is a public repo, ALWAYS ALARM IF YOU FIND ANY SENSITIVE OR PRIVATE DATA
   IN THERE
 - `.agents/AGENTS.md` contains global instructions for terminal-based agents
