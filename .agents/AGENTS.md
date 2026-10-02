@@ -1,5 +1,8 @@
 # Global agent guidelines
 
+- When a request is a question, answer it. Don't assume it's an indirect action
+  request
+
 ## Tool permissions
 
 - Use only connected GitHub tools for GitHub API operations; do not use `gh`
