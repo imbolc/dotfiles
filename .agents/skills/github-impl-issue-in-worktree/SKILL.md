@@ -1,9 +1,9 @@
 ---
-name: impl-github-issue-in-worktree
+name: github-impl-issue-in-worktree
 description: "Implement a GitHub issue in a worktree and open a PR"
 ---
 
-# impl-github-issue-in-worktree <issue_id>
+# github-impl-issue-in-worktree <issue_id>
 
 - If you're in Tmux rename current window to `i<issue_id>`
 - Work on issue #<issue_id> in a separate Git worktree with a dedicated branch
