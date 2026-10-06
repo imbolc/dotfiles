@@ -33,6 +33,7 @@ cargo install --locked stylua         # Opinionated Lua formatter
 cargo install --locked taplo-cli      # TOML formatter
 cargo install --locked tokei          # Code statistics generator
 cargo install --locked typos-cli      # Spell checker
+cargo install --locked topcoat-cli
 
 . "$HOME"/.nvm/nvm.sh
 nvm exec 22 npm install -g @openai/codex@latest
