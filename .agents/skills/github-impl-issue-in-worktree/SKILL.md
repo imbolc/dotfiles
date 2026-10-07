@@ -5,7 +5,7 @@ description: "Implement a GitHub issue in a worktree and open a PR"
 
 # github-impl-issue-in-worktree <issue_id>
 
-- If you're in Tmux rename current window to `i<issue_id>`
+- If you're in Tmux, run: `tmux rename-window -t "$TMUX_PANE" "impl<issue_id>"`
 - Work on issue #<issue_id> in a separate Git worktree with a dedicated branch
 - Ask all questions you can identify that require my attention **before** you
   start making any changes. After that, proceed independently using reasonable
@@ -21,4 +21,5 @@ description: "Implement a GitHub issue in a worktree and open a PR"
 - When possible run benchmarks in parallel to save time
 - When implementation and tests are complete, push the branch and open a PR
   against `main`
-- If you're in Tmux rename current window to `i<issue_id>p<pr_id>`
+- If you're in Tmux, run:
+  `tmux rename-window -t "$TMUX_PANE" "i<issue_id>p<pr_id>"`
