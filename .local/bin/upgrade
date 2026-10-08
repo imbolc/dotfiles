@@ -6,6 +6,11 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 
+sudo apt install \
+binutils \
+build-essential \
+mold \
+
 rustup update
 
 sudo apt install -y libssl-dev libfontconfig-dev # for Alacritty
