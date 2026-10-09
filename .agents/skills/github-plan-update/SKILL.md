@@ -8,6 +8,7 @@ description: "Update GitHub plan"
 - Use the supplied `issue_id` when provided; otherwise resolve the current issue
   from the conversation or the issue linked to the current branch's PR
 - Ask for the issue ID only if the target is missing or ambiguous
+- Use [tmux-rename-window](../tmux-rename-window/SKILL.md) with `plan<issue_id>`
 
 The first issue message contains implementation plan. Your job is to
 integrate relevant findings from the comments into the plan. Loop, processing
