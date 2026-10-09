@@ -19,7 +19,7 @@ description: "Implement a GitHub issue in a worktree and open a PR"
 - Follow the plan to completion, committing each logical completed step and
   keeping the plan in sync
 - When possible run benchmarks in parallel to save time
-- When implementation and tests are complete, push the branch and open a PR
-  against `main`
+- Once implementation and testing are complete, push the branch and open a PR
+  against `main`. The PR must fully address and close the issue.
 - Use [tmux-rename-window](../tmux-rename-window/SKILL.md) with
   `i<issue_id>p<pr_id>`
