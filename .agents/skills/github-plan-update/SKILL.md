@@ -5,16 +5,27 @@ description: "Update GitHub plan"
 
 # github-plan-update [issue_id]
 
+## Preflight
+
 - Use the supplied `issue_id` when provided; otherwise resolve the current issue
   from the conversation or the issue linked to the current branch's PR
 - Ask for the issue ID only if the target is missing or ambiguous
 - Use [tmux-rename-window](../tmux-rename-window/SKILL.md) with `plan<issue_id>`
 
-The first issue message contains implementation plan. Your job is to
-integrate relevant findings from the comments into the plan. Loop, processing
-one comment completely before moving to the next, so the integration progress
-isn't lost if you stop at any point. Update the plan before replacing the
-corresponding comment body.
+## Goal
+
+The first issue message contains implementation plan. Your job is to integrate
+relevant findings from the comments into the plan.
+
+## Ensure the plan is relevant
+
+Check the current plan and ensure it's still relevant to the `main` code branch.
+
+## Integrate findings
+
+Loop, processing one comment completely before moving to the next, so the
+integration progress isn't lost if you stop at any point. Update the plan before
+replacing the corresponding comment body.
 
 - Read the first unprocessed comment
 - If the comment reports no new findings or is already integrated - loop to the
