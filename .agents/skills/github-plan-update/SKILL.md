@@ -19,7 +19,16 @@ relevant findings from the comments into the plan.
 
 ## Ensure the plan is relevant
 
-Check the current plan and ensure it's still relevant to the `main` code branch.
+Check the current plan and ensure it's still relevant to the code in the `main`
+branch. Make sure the plan is unambiguous and leaves no open questions for the
+implementer.
+
+If you can't resolve some parts yourself or are sure they require my approval,
+stop and ask questions one at a time. Phrase them simply from the user's
+perspective, avoid excessive technical details, explain the trade-offs clearly,
+and mark the recommended option.
+
+Don't proceed to the next section until the current plan is clear.
 
 ## Integrate findings
 
@@ -41,3 +50,7 @@ replacing the corresponding comment body.
   its description in the first issue message.
 - Loop until there's no unprocessed comments left
 - Report how many comment's are integrated / rejected
+
+## Review the plan
+
+Review the final plan once more following `Ensure the plan is relevant` section.
