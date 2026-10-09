@@ -28,8 +28,8 @@ integration progress isn't lost if you stop at any point. Update the plan before
 replacing the corresponding comment body.
 
 - Read the first unprocessed comment
-- If the comment reports no new findings or is already integrated - loop to the
-  next comment
+- Leave comments that only report no new findings unchanged, and skip comments
+  whose entire body is already a status marker
 - If the comment contains any new relevant findings that are within the issue's
   scope - integrate them into the first message plan and replace the comment
   body with `integrated into plan` text
