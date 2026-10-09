@@ -1,9 +1,9 @@
 ---
-name: github-impl-issue-in-worktree
+name: github-issue-implement
 description: "Implement a GitHub issue in a worktree and open a PR"
 ---
 
-# github-impl-issue-in-worktree <issue_id>
+# github-issue-implement <issue_id>
 
 - Use [tmux-rename-window](../tmux-rename-window/SKILL.md) with `impl<issue_id>`
 - Work on issue #<issue_id> in a separate Git worktree with a dedicated branch

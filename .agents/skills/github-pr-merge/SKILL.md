@@ -1,5 +1,5 @@
 ---
-name: github-merge-worktree-pr
+name: github-pr-merge
 description: "Merge GitHub PR and delete worktree"
 ---
 

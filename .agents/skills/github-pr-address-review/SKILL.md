@@ -1,9 +1,9 @@
 ---
-name: github-address-pr-review
+name: github-pr-address-review
 description: "Address a GitHub PR review"
 ---
 
-# github-address-pr-review [pr_id]
+# github-pr-address-review [pr_id]
 
 - Use the supplied `pr_id` when provided; otherwise resolve the current PR from
   the conversation or the current branch
