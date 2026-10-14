@@ -117,57 +117,6 @@ if [ -d "${PYENV_ROOT}" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-# Automatically activate virtualenv
-_activate_virtualenv() {
-    _VENV_FOLDERS=(
-        .venv
-        var/env
-    )
-    if [[ -n $_VENV_ROOT ]]; then
-        # Deactivate virtualenv if the current folder isn't under the activated one
-        if [[ ! $(realpath "$PWD")/ =~ ^$_VENV_ROOT/ ]]; then
-            deactivate
-            echo "Virtualenv deactivated: $_VENV_NAME"
-            unset _VENV_ROOT
-            unset _VENV_NAME
-        fi
-    fi
-    if [[ -z $VIRTUAL_ENV ]]; then
-        for _VENV_FOLDER in "${_VENV_FOLDERS[@]}"; do
-            if [[ -f "$_VENV_FOLDER/bin/activate" ]]; then
-                _VENV_ROOT=$(realpath "$PWD")
-                _VENV_NAME=$(basename "$PWD")
-                # shellcheck disable=SC2034
-                VIRTUAL_ENV_DISABLE_PROMPT=1
-                # shellcheck disable=SC1091
-                . "$_VENV_FOLDER"/bin/activate
-                echo "Virtualenv activated: $_VENV_NAME"
-                break
-            fi
-        done
-    fi
-}
-export PROMPT_COMMAND="_activate_virtualenv;$PROMPT_COMMAND"
-
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-# shellcheck disable=SC1091
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# shellcheck disable=SC1091
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-_use_nvm() {
-    if [[ $PWD == "$nvm_prev_pwd" ]]; then
-        return
-    fi
-
-    nvm_prev_pwd=$PWD
-    [[ -f ".nvmrc" ]] && nvm use
-}
-if [ -d "${NVM_DIR}" ]; then
-    export PROMPT_COMMAND="_use_nvm;$PROMPT_COMMAND"
-fi
-
 # Android
 JAVA_HOME=$(update-alternatives --query javac 2>/dev/null | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
 # JAVA_HOME="/usr/lib/jvm/jdk-21.0.6-oracle-x64"
@@ -205,9 +154,13 @@ if command -v sk >/dev/null 2>&1; then
     bind -x '"\C-r": skim_history'
 fi
 
-# if command -v starship >/dev/null 2>&1; then
-#     eval "$(starship init bash)"
-# fi
+# Homebrew
+brew=/home/linuxbrew/.linuxbrew/bin/brew
+if [ -f "$brew" ]; then
+    eval "$($brew shellenv bash)"
+else
+    echo 'Install Homebrew: https://brew.sh/'
+fi
 
 # sqlx 0.9 uses `anonymous` user by default
 export PGUSER="$USER"
