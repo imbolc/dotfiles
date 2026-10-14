@@ -1,19 +1,15 @@
+[general]
+# use `local.toml` to change default settings, e.g. font size
+import = ["defaults.toml", "local.toml", "current_theme.toml"]
+
 [window]
 startup_mode = "Maximized"
 decorations = "none"
 dynamic_title = false
 
-[font]
-size = 23
-italic = { style = "Regular" }
-bold_italic = { style = "Bold" }
-
 [[keyboard.bindings]]
 key = "F11"
 action = "ToggleFullScreen"
-
-[general]
-import = ["~/.config/alacritty/current_theme.toml"]
 
 [bell]
 command = { program = "paplay", args = [
