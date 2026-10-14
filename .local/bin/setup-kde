@@ -1,0 +1,189 @@
+#!/usr/bin/env sh
+# Apply these preferences from a running KDE Plasma 6 session.
+set -efu
+
+plasma-apply-lookandfeel -a org.kde.breeze.desktop
+
+kwriteconfig6 --notify --file kdeglobals --group General --key BrowserApplication google-chrome.desktop
+kwriteconfig6 --notify --file plasma-localerc --group Formats --key LANG en_US.UTF-8
+
+kwriteconfig6 --notify --file kwinrc --group Effect-overview --key BorderActivate 9
+kwriteconfig6 --notify --file kwinrc --group NightColor --key Active --type bool true
+kwriteconfig6 --notify --file kwinrc --group Windows --key FocusStealingPreventionLevel 0
+kwriteconfig6 --notify --file kwinrc --group Xwayland --key Scale 1.75
+
+kwriteconfig6 --notify --file kscreenlockerrc --group Daemon --key Autolock --type bool false
+kwriteconfig6 --notify --file kscreenlockerrc --group Daemon --key Timeout 0
+
+kwriteconfig6 --notify --file powerdevilrc --group AC --group Display --key DimDisplayIdleTimeoutSec 600
+kwriteconfig6 --notify --file powerdevilrc --group AC --group Display --key TurnOffDisplayIdleTimeoutSec -- -1
+kwriteconfig6 --notify --file powerdevilrc --group AC --group Display --key TurnOffDisplayWhenIdle --type bool false
+kwriteconfig6 --notify --file powerdevilrc --group AC --group SuspendAndShutdown --key AutoSuspendAction 0
+
+kwriteconfig6 --notify --file klipperrc --group General --key KeepClipboardContents --type bool false
+kwriteconfig6 --notify --file klipperrc --group General --key SelectionTextOnly --type bool false
+kwriteconfig6 --notify --file plasmashellrc --group 'Notification Messages' --key klipperClearHistoryAskAgain --type bool false
+
+kwriteconfig6 --notify --file dolphinrc --group 'KFileDialog Settings' --key 'Places Icons Auto-resize' --type bool false
+kwriteconfig6 --notify --file dolphinrc --group 'KFileDialog Settings' --key 'Places Icons Static Size' 22
+kwriteconfig6 --notify --file dolphinrc --group MainWindow --key MenuBar Disabled
+
+kwriteconfig6 --notify --file konsolerc --group KonsoleWindow --key RemoveWindowTitleBarAndFrame --type bool true
+kwriteconfig6 --notify --file konsolerc --group 'Notification Messages' --key ShowPasteHugeTextWarning --type bool false
+
+kwriteconfig6 --notify --file spectaclerc --group General --key clipboardGroup PostScreenshotCopyImage
+kwriteconfig6 --notify --file spectaclerc --group General --key launchAction UseLastUsedCapturemode
+kwriteconfig6 --notify --file spectaclerc --group GuiConfig --key captureMode 0
+kwriteconfig6 --notify --file spectaclerc --group GuiConfig --key quitAfterSaveCopyExport --type bool true
+kwriteconfig6 --notify --file spectaclerc --group Annotations --key annotationToolType 5
+kwriteconfig6 --notify --file spectaclerc --group Annotations --key rectangleStrokeColor 255,0,0
+
+kde_konsole_dir=${XDG_DATA_HOME:-$HOME/.local/share}/konsole
+mkdir -p "$kde_konsole_dir"
+cat >"$kde_konsole_dir/imbolc.profile" <<'PROFILE'
+[Appearance]
+AntiAliasFonts=true
+BoldIntense=false
+ColorScheme=SolarizedLight
+Font=Hack,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+UseFontBrailleChararacters=true
+WordMode=false
+
+[General]
+DimWhenInactive=false
+Name=imbolc
+Parent=FALLBACK/
+TerminalMargin=0
+TerminalRows=29
+
+[Interaction Options]
+CopyTextAsHTML=false
+
+[Scrolling]
+ScrollBarPosition=2
+
+[Terminal Features]
+BellMode=0
+BlinkingTextEnabled=true
+PROFILE
+
+# Qt encodes each D-Bus key sequence as an array of four key combinations.
+kde_meta=268435456
+kde_shift=33554432
+kde_print=16777225
+shortcut() {
+    gdbus call --session --dest org.kde.kglobalaccel --object-path /kglobalaccel \
+        --method org.kde.KGlobalAccel.setForeignShortcutKeys \
+        "['$1', '$2', '', '']" "$3" >/dev/null
+}
+shortcut plasmashell 'next activity' "[([$((kde_meta + 65)), 0, 0, 0],)]"
+shortcut plasmashell 'previous activity' "[([$((kde_meta + kde_shift + 65)), 0, 0, 0],)]"
+shortcut org.kde.spectacle.desktop _launch "[([$((kde_meta + kde_shift + 83)), 0, 0, 0],)]"
+shortcut org.kde.spectacle.desktop RectangularRegionScreenShot \
+    "[([$((kde_meta + kde_shift + kde_print)), 0, 0, 0],), ([$kde_print, 0, 0, 0],)]"
+
+qdbus6 org.kde.KWin /KWin org.kde.KWin.reconfigure
+qdbus6 org.freedesktop.ScreenSaver /ScreenSaver org.kde.screensaver.configure
+qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement org.kde.Solid.PowerManagement.refreshStatus
+qdbus6 org.kde.klipper /klipper org.kde.klipper.klipper.reloadConfig
+
+# Detect enabled outputs at runtime instead of recording monitor identifiers.
+kde_outputs=$(kscreen-doctor --json)
+kde_scale_args=$(printf '%s\n' "$kde_outputs" |
+    jq -r '.outputs[] | select(.enabled) | "output.\(.id).scale.1.75"')
+# The generated arguments contain only output IDs and a fixed scale.
+# shellcheck disable=SC2086
+kscreen-doctor $kde_scale_args
+
+qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
+    cat <<'PLASMA'
+var previous = panels()[0];
+var panel = new Panel;
+panel.location = "right";
+panel.alignment = "center";
+panel.height = 32;
+panel.lengthMode = "fill";
+panel.hiding = "none";
+panel.floating = false;
+panel.opacity = "adaptive";
+
+// Moving existing widgets preserves their configuration and activity favorites.
+function widget(type) {
+    var existing = previous ? previous.widgets(type)[0] : null;
+    return panel.addWidget(existing || type);
+}
+function configure(applet, group, settings) {
+    applet.currentConfigGroup = [group];
+    Object.keys(settings).forEach(function(key) {
+        applet.writeConfig(key, settings[key]);
+    });
+    applet.reloadConfig();
+}
+widget("org.kde.plasma.kickoff");
+widget("org.kde.plasma.pager");
+var tasks = widget("org.kde.plasma.icontasks");
+configure(tasks, "General", {
+    groupingStrategy: 0,
+    launchers: [
+        "applications:alacritty.desktop",
+        "preferred://browser",
+        "applications:org.telegram.desktop.desktop",
+        "applications:firefox-esr.desktop"
+    ]
+});
+var temperature = widget("org.kde.plasma.systemmonitor");
+configure(temperature, "Appearance", {chartFace: "org.kde.ksysguard.piechart"});
+configure(temperature, "Sensors", {totalSensors: '["cpu/all/averageTemperature"]'});
+var cores = widget("org.kde.plasma.systemmonitor.cpucore");
+configure(cores, "Appearance", {
+    chartFace: "org.kde.ksysguard.horizontalbars",
+    title: "Individual Core Usage"
+});
+configure(cores, "Sensors", {
+    highPrioritySensorIds: '["cpu/cpu.*/usage"]',
+    totalSensors: '["cpu/all/usage"]'
+});
+widget("org.kde.plasma.marginsseparator");
+widget("org.kde.plasma.systemtray");
+var clock = widget("org.kde.plasma.digitalclock");
+configure(clock, "Appearance", {
+    dateFormat: "custom",
+    customDateFormat: "ddd dd MMM",
+    use24hFormat: 2,
+    showSeconds: "Never",
+    fontFamily: "Nimbus Sans [UKWN]",
+    fontSize: 12,
+    fontStyleName: "Regular",
+    fontWeight: 400
+});
+if (previous) {
+    previous.widgets().forEach(function(applet) {
+        panel.addWidget(applet);
+    });
+    previous.remove();
+}
+PLASMA
+)"
+
+# A new system tray creates its containment after the first script returns.
+qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
+    cat <<'TRAY'
+var panel = panels().sort(function(a, b) { return b.id - a.id; })[0];
+var tray = panel.widgets("org.kde.plasma.systemtray")[0];
+var systray = desktopById(tray.readConfig("SystrayContainmentId"));
+systray.currentConfigGroup = ["General"];
+systray.writeConfig("extraItems", [
+    "org.kde.plasma.manage-inputmethod", "org.kde.kdeconnect",
+    "org.kde.plasma.printmanager", "org.kde.plasma.bluetooth",
+    "org.kde.plasma.keyboardindicator", "org.kde.plasma.networkmanagement",
+    "org.kde.plasma.devicenotifier", "org.kde.plasma.keyboardlayout",
+    "org.kde.plasma.vault", "org.kde.plasma.battery",
+    "org.kde.plasma.cameraindicator", "org.kde.plasma.brightness",
+    "org.kde.kupapplet", "org.kde.plasma.notifications", "org.kde.kscreen",
+    "org.kde.plasma.volume", "org.kde.plasma.mediacontroller",
+    "org.kde.plasma.diskquota"
+]);
+systray.reloadConfig();
+TRAY
+)"
+printf '%s\n' 'KDE preferences applied. Locale takes effect at the next login.'
