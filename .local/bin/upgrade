@@ -7,14 +7,11 @@ sudo apt upgrade -y
 sudo apt autoremove -y
 
 sudo apt install \
-binutils \
-build-essential \
-mold \
+    binutils \
+    build-essential \
+    mold
 
 rustup update
-
-sudo apt install -y libssl-dev libfontconfig-dev # for Alacritty
-cargo install --locked alacritty                 # Terminal emulator
 
 cargo install --locked bat            # Better cat
 cargo install --locked cargo-expand   # Expands macros
@@ -39,3 +36,19 @@ cargo install --locked taplo-cli      # TOML formatter
 cargo install --locked tokei          # Code statistics generator
 cargo install --locked typos-cli      # Spell checker
 cargo install --locked topcoat-cli
+
+# Alacritty
+sudo apt install -y libssl-dev libfontconfig-dev
+cargo install --locked alacritty
+(
+    desktop="$HOME/.local/share/applications/Alacritty.desktop"
+    icon="$HOME/.local/share/icons/hicolor/scalable/apps/Alacritty.svg"
+    if [ ! -f "$desktop" ]; then
+        mkdir -p "$(dirname "$desktop")" "$(dirname "$icon")"
+
+        curl -fsSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/linux/Alacritty.desktop -o "$desktop"
+        curl -fsSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/logo/alacritty-term.svg -o "$icon"
+
+        sed -i "s|=alacritty$|=$HOME/.cargo/bin/alacritty|" "$desktop"
+    fi
+)
