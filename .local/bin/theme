@@ -15,7 +15,6 @@ if [ "$theme" = "dark" ]; then
     bat_config="config-dark"
     delta_theme="theme-dark"
     vim_config='vim.opt.background = "dark"'
-    inactive_fg=colour242
 else
     kde_theme=org.kde.breeze.desktop
     # gtk_theme="Adwaita"
@@ -23,7 +22,6 @@ else
     bat_config="config-light"
     delta_theme="theme-light"
     vim_config='vim.opt.background = "light"'
-    inactive_fg=colour250
 fi
 
 # GTK
@@ -39,12 +37,12 @@ cd "$HOME/.config/alacritty"
 ln -sf themes/$alacritty_theme.toml current_theme.toml
 touch alacritty.toml
 
-# Apply default colors to existing and future tmux windows.
+# Preserve pane dimming when switching themes
 if tmux has-session 2>/dev/null; then
     tmux set-option -gw window-style \
-        "fg=$inactive_fg,bg=terminal"
+        'fg=terminal,bg=terminal,dim=40%'
     tmux set-option -gw window-active-style \
-        'fg=terminal,bg=terminal'
+        'fg=terminal,bg=terminal,dim=0%'
 fi
 
 # Bat

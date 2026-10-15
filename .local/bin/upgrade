@@ -52,3 +52,14 @@ cargo install --locked alacritty
         sed -i "s|=alacritty$|=$HOME/.cargo/bin/alacritty|" "$desktop"
     fi
 )
+
+if ! command -v brew >/dev/null 2>&1; then
+    printf '%s\n' 'Error: brew is required to install lua-language-server and marksman and must be on PATH.' >&2
+    echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+    exit 1
+fi
+
+brew install \
+    lua-language-server \
+    marksman \
+    tmux
