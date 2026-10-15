@@ -3,9 +3,11 @@ application/xml=google-chrome.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop
+x-scheme-handler/tonsite=org.telegram.desktop._27505cef6569c2e6dcbd09ecfa582333.desktop
 x-scheme-handler/mailto=xfce4-mail-reader.desktop
 x-scheme-handler/codex=chatgpt.desktop
+x-scheme-handler/tg=org.telegram.desktop._27505cef6569c2e6dcbd09ecfa582333.desktop
+x-scheme-handler/ton=org.telegram.desktop._27505cef6569c2e6dcbd09ecfa582333.desktop
 
 [Added Associations]
 audio/mpeg=vlc.desktop;audacity.desktop;
@@ -15,7 +17,9 @@ image/png=org.xfce.ristretto.desktop;krita_png.desktop;
 text/csv=libreoffice-calc.desktop;
 video/x-matroska=vlc.desktop;
 video/x-msvideo=vlc.desktop;
-x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop._0b4c9b0b6fa130365e201591650b7bfe.desktop;org.telegram.desktop._27505cef6569c2e6dcbd09ecfa582333.desktop;
 application/epub+zip=mupdf.desktop;
 x-scheme-handler/mailto=xfce4-mail-reader.desktop;
 application/pdf=atril.desktop;com.github.xournalpp.xournalpp.desktop;com.google.Chrome.desktop;
+x-scheme-handler/tg=org.telegram.desktop._27505cef6569c2e6dcbd09ecfa582333.desktop;
+x-scheme-handler/ton=org.telegram.desktop._27505cef6569c2e6dcbd09ecfa582333.desktop;
