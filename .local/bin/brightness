@@ -1,6 +1,14 @@
 #!/usr/bin/env sh
 
+# Sets brightness on Intel GPU ThinkPad
 set -efu
+
+target_file=/sys/class/backlight/intel_backlight/brightness
+
+if [ ! -f $target_file ]; then
+    # Not an Intel GPU"
+    exit 0
+fi
 
 # Constants
 MIN_LEVEL=8
@@ -20,4 +28,4 @@ if ! [ "$level" -eq "$level" ] 2>/dev/null || [ "$level" -lt $MIN_LEVEL ] || [ "
     exit 1
 fi
 
-sudo sh -c "echo $level > /sys/class/backlight/intel_backlight/brightness"
+sudo sh -c "echo $level > $target_file"
