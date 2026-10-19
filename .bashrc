@@ -4,8 +4,6 @@ case $- in
 *) return ;;
 esac
 
-TERM=xterm-256color
-
 # Don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 
@@ -61,15 +59,6 @@ complete -cf sudo
 # Vim-like command line
 set -o vi
 
-# Vim as default editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
-# Add user's bin folder to PATH
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
 # Open a project in a named Tmux session
 project() {
     [ "$#" -eq 1 ] || {
@@ -99,43 +88,10 @@ _project_complete() {
 }
 complete -F _project_complete project
 
-# Cargo
-. "$HOME/.cargo/env"
-
-# Snap
-if [ -d "/snap/bin" ]; then
-    PATH="/snap/bin:$PATH"
-fi
-
 # Pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH="${PYENV_ROOT}/bin:${PATH}"
+if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
-fi
-
-# Android
-JAVA_HOME=$(update-alternatives --query javac 2>/dev/null | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
-# JAVA_HOME="/usr/lib/jvm/jdk-21.0.6-oracle-x64"
-export JAVA_HOME
-
-export ANDROID_HOME="$HOME/Android/Sdk"
-if [ -d "${ANDROID_HOME}" ]; then
-    export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
-    export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export PATH=$PATH:$ANDROID_HOME/emulator
-fi
-
-if [ -d "$ANDROID_HOME/ndk" ] && ls "$ANDROID_HOME/ndk"/* >/dev/null 2>&1; then
-    # Set to the last NDK directory (assuming version sorting)
-    ANDROID_NDK_HOME=$(find "$ANDROID_HOME/ndk" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)
-    export ANDROID_NDK_HOME
-fi
-
-ANDROID_AVD_HOME=$HOME/.config/.android/avd
-if [ -d "${ANDROID_HOME}" ]; then
-    export ANDROID_AVD_HOME
 fi
 
 # Bind Ctrl+R to use skim if it's available (cargo install skim)
@@ -152,16 +108,7 @@ if command -v sk >/dev/null 2>&1; then
     bind -x '"\C-r": skim_history'
 fi
 
-# Homebrew
-brew=/home/linuxbrew/.linuxbrew/bin/brew
-if [ -f "$brew" ]; then
-    eval "$($brew shellenv bash)"
-else
-    echo 'Install Homebrew: https://brew.sh/'
-fi
-
-# sqlx 0.9 uses `anonymous` user by default
-export PGUSER="$USER"
-
 # secret env variables
-[ -r "$HOME/.bash_secrets.sh" ] && . "$HOME/.bash_secrets.sh"
+if [ -r "$HOME/.bash_secrets.sh" ]; then
+    . "$HOME/.bash_secrets.sh"
+fi
