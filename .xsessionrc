@@ -1,3 +1,8 @@
+# Share the login environment with desktop applications and terminals
+if [ -r "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+fi
+
 # Disable the screensaver from activating.
 xset s off
 
