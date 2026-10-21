@@ -9,6 +9,8 @@ kwriteconfig6 --notify --file plasma-localerc --group Formats --key LANG en_US.U
 
 kwriteconfig6 --notify --file kwinrc --group Effect-overview --key BorderActivate 9
 kwriteconfig6 --notify --file kwinrc --group NightColor --key Active --type bool true
+kwriteconfig6 --notify --file kwinrc --group NightColor --key NightTemperature 3500
+kwriteconfig6 --notify --file kwinrc --group Tiling --key padding 4
 kwriteconfig6 --notify --file kwinrc --group Windows --key FocusStealingPreventionLevel 0
 kwriteconfig6 --notify --file kwinrc --group Xwayland --key Scale 1.75
 
@@ -36,6 +38,7 @@ kwriteconfig6 --notify --file spectaclerc --group General --key launchAction Use
 kwriteconfig6 --notify --file spectaclerc --group GuiConfig --key captureMode 0
 kwriteconfig6 --notify --file spectaclerc --group GuiConfig --key quitAfterSaveCopyExport --type bool true
 kwriteconfig6 --notify --file spectaclerc --group Annotations --key annotationToolType 5
+kwriteconfig6 --notify --file spectaclerc --group Annotations --key highlighterStrokeColor 170,0,0
 kwriteconfig6 --notify --file spectaclerc --group Annotations --key rectangleStrokeColor 255,0,0
 
 kde_konsole_dir=${XDG_DATA_HOME:-$HOME/.local/share}/konsole
@@ -124,16 +127,34 @@ widget("org.kde.plasma.pager");
 var tasks = widget("org.kde.plasma.icontasks");
 configure(tasks, "General", {
     groupingStrategy: 0,
+    highlightWindows: false,
+    interactiveMute: false,
+    middleClickAction: "None",
+    showToolTips: false,
+    wheelEnabled: false,
     launchers: [
-        "applications:alacritty.desktop",
+        "applications:Alacritty.desktop",
         "preferred://browser",
-        "applications:org.telegram.desktop.desktop",
+        "applications:" + (defaultApplication("x-scheme-handler/tg", true) || "org.telegram.desktop.desktop"),
         "applications:firefox-esr.desktop"
     ]
 });
+var memory = widget("org.kde.plasma.systemmonitor.memory");
+configure(memory, "Appearance", {
+    chartFace: "org.kde.ksysguard.piechart",
+    title: "Memory Usage"
+});
+configure(memory, "Sensors", {
+    highPrioritySensorIds: '["memory/physical/used"]',
+    lowPrioritySensorIds: '["memory/physical/total"]',
+    totalSensors: '["memory/physical/usedPercent"]'
+});
 var temperature = widget("org.kde.plasma.systemmonitor");
 configure(temperature, "Appearance", {chartFace: "org.kde.ksysguard.piechart"});
-configure(temperature, "Sensors", {totalSensors: '["cpu/all/averageTemperature"]'});
+configure(temperature, "Sensors", {
+    lowPrioritySensorIds: '["memory/physical/freePercent"]',
+    totalSensors: '["cpu/all/maximumTemperature"]'
+});
 var cores = widget("org.kde.plasma.systemmonitor.cpucore");
 configure(cores, "Appearance", {
     chartFace: "org.kde.ksysguard.horizontalbars",
@@ -182,6 +203,9 @@ systray.writeConfig("extraItems", [
     "org.kde.kupapplet", "org.kde.plasma.notifications", "org.kde.kscreen",
     "org.kde.plasma.volume", "org.kde.plasma.mediacontroller",
     "org.kde.plasma.diskquota"
+]);
+systray.writeConfig("hiddenItems", [
+    "org.kde.plasma.brightness", "org.kde.plasma.devicenotifier"
 ]);
 systray.reloadConfig();
 TRAY
