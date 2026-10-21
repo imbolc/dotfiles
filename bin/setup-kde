@@ -88,7 +88,10 @@ shortcut org.kde.spectacle.desktop RectangularRegionScreenShot \
 qdbus6 org.kde.KWin /KWin org.kde.KWin.reconfigure
 qdbus6 org.freedesktop.ScreenSaver /ScreenSaver org.kde.screensaver.configure
 qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement org.kde.Solid.PowerManagement.refreshStatus
-qdbus6 org.kde.klipper /klipper org.kde.klipper.klipper.reloadConfig
+if [ "$(qdbus6 org.freedesktop.DBus /org/freedesktop/DBus \
+    org.freedesktop.DBus.NameHasOwner org.kde.klipper)" = true ]; then
+    qdbus6 org.kde.klipper /klipper org.kde.klipper.klipper.reloadConfig
+fi
 
 # Detect enabled outputs at runtime instead of recording monitor identifiers.
 kde_outputs=$(kscreen-doctor --json)
@@ -100,8 +103,7 @@ kscreen-doctor $kde_scale_args
 
 qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
     cat <<'PLASMA'
-var previous = panels()[0];
-var panel = new Panel;
+var panel = panels()[0] || new Panel;
 panel.location = "right";
 panel.alignment = "center";
 panel.height = 32;
@@ -110,10 +112,9 @@ panel.hiding = "none";
 panel.floating = false;
 panel.opacity = "adaptive";
 
-// Moving existing widgets preserves their configuration and activity favorites.
+// Reuse existing widgets to preserve their positions and configuration.
 function widget(type) {
-    var existing = previous ? previous.widgets(type)[0] : null;
-    return panel.addWidget(existing || type);
+    return panel.widgets(type)[0] || panel.addWidget(type);
 }
 function configure(applet, group, settings) {
     applet.currentConfigGroup = [group];
@@ -177,19 +178,13 @@ configure(clock, "Appearance", {
     fontStyleName: "Regular",
     fontWeight: 400
 });
-if (previous) {
-    previous.widgets().forEach(function(applet) {
-        panel.addWidget(applet);
-    });
-    previous.remove();
-}
 PLASMA
 )"
 
 # A new system tray creates its containment after the first script returns.
 qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
     cat <<'TRAY'
-var panel = panels().sort(function(a, b) { return b.id - a.id; })[0];
+var panel = panels()[0];
 var tray = panel.widgets("org.kde.plasma.systemtray")[0];
 var systray = desktopById(tray.readConfig("SystrayContainmentId"));
 systray.currentConfigGroup = ["General"];
