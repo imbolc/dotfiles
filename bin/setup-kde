@@ -101,7 +101,7 @@ kde_scale_args=$(printf '%s\n' "$kde_outputs" |
 # shellcheck disable=SC2086
 kscreen-doctor $kde_scale_args
 
-qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
+kde_panel_layout=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
     cat <<'PLASMA'
 var panel = panels()[0] || new Panel;
 panel.location = "right";
@@ -112,9 +112,12 @@ panel.hiding = "none";
 panel.floating = false;
 panel.opacity = "adaptive";
 
-// Reuse existing widgets to preserve their positions and configuration.
+// Reuse widget configuration and record the intended order with local IDs.
+var appletOrder = [];
 function widget(type) {
-    return panel.widgets(type)[0] || panel.addWidget(type);
+    var applet = panel.widgets(type)[0] || panel.addWidget(type);
+    appletOrder.push(applet.id);
+    return applet;
 }
 function configure(applet, group, settings) {
     applet.currentConfigGroup = [group];
@@ -178,13 +181,23 @@ configure(clock, "Appearance", {
     fontStyleName: "Regular",
     fontWeight: 400
 });
+print(JSON.stringify({panelId: panel.id, appletOrder: appletOrder}));
 PLASMA
-)"
+)")
 
 # A new system tray creates its containment after the first script returns.
-qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
+kde_panel_reorder=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
+    printf 'var setup = %s;\n' "$kde_panel_layout"
     cat <<'TRAY'
-var panel = panels()[0];
+var panel = panelById(setup.panelId);
+panel.currentConfigGroup = ["General"];
+var previousOrder = String(panel.readConfig("AppletOrder", ""));
+var extraApplets = previousOrder.split(";").map(Number).filter(function(id) {
+    return id && setup.appletOrder.indexOf(id) === -1;
+});
+var order = setup.appletOrder.concat(extraApplets).join(";");
+panel.writeConfig("AppletOrder", order);
+panel.reloadConfig();
 var tray = panel.widgets("org.kde.plasma.systemtray")[0];
 var systray = desktopById(tray.readConfig("SystrayContainmentId"));
 systray.currentConfigGroup = ["General"];
@@ -203,6 +216,12 @@ systray.writeConfig("hiddenItems", [
     "org.kde.plasma.brightness", "org.kde.plasma.devicenotifier"
 ]);
 systray.reloadConfig();
+print(previousOrder !== order ? "true" : "false");
 TRAY
-)"
+)")
+
+# Plasma 6.3 reads AppletOrder when the panel loads; widget.index is a no-op.
+if [ "$kde_panel_reorder" = true ]; then
+    qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.refreshCurrentShell
+fi
 printf '%s\n' 'KDE preferences applied. Locale takes effect at the next login.'
