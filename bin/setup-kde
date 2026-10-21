@@ -112,6 +112,10 @@ panel.hiding = "none";
 panel.floating = false;
 panel.opacity = "adaptive";
 
+panel.widgets("org.kde.plasma.showdesktop").forEach(function(applet) {
+    applet.remove();
+});
+
 // Reuse widget configuration and record the intended order with local IDs.
 var appletOrder = [];
 function widget(type) {
@@ -185,15 +189,33 @@ print(JSON.stringify({panelId: panel.id, appletOrder: appletOrder}));
 PLASMA
 )")
 
+# Handy's Linux tray ID includes its PID, so discover it on this machine.
+kde_handy_tray_ids=$(
+    qdbus6 org.kde.StatusNotifierWatcher /StatusNotifierWatcher \
+        org.kde.StatusNotifierWatcher.RegisteredStatusNotifierItems |
+        while IFS= read -r kde_item; do
+            kde_service=${kde_item%%/*}
+            kde_path=/${kde_item#*/}
+            kde_pid=$(qdbus6 org.freedesktop.DBus /org/freedesktop/DBus \
+                org.freedesktop.DBus.GetConnectionUnixProcessID "$kde_service") || continue
+            if [ "$(cat "/proc/$kde_pid/comm" 2>/dev/null)" = handy ]; then
+                qdbus6 "$kde_service" "$kde_path" org.kde.StatusNotifierItem.Id
+            fi
+        done | jq -Rsc 'split("\n") | map(select(length > 0))'
+)
+
 # A new system tray creates its containment after the first script returns.
 kde_panel_reorder=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(
     printf 'var setup = %s;\n' "$kde_panel_layout"
+    printf 'var handyTrayIds = %s;\n' "$kde_handy_tray_ids"
     cat <<'TRAY'
 var panel = panelById(setup.panelId);
 panel.currentConfigGroup = ["General"];
 var previousOrder = String(panel.readConfig("AppletOrder", ""));
 var extraApplets = previousOrder.split(";").map(Number).filter(function(id) {
-    return id && setup.appletOrder.indexOf(id) === -1;
+    var applet = panel.widgetById(id);
+    return applet && applet.type !== "org.kde.plasma.showdesktop"
+        && setup.appletOrder.indexOf(id) === -1;
 });
 var order = setup.appletOrder.concat(extraApplets).join(";");
 panel.writeConfig("AppletOrder", order);
@@ -212,9 +234,14 @@ systray.writeConfig("extraItems", [
     "org.kde.plasma.volume", "org.kde.plasma.mediacontroller",
     "org.kde.plasma.diskquota"
 ]);
-systray.writeConfig("hiddenItems", [
+var hiddenItems = [
     "org.kde.plasma.brightness", "org.kde.plasma.devicenotifier"
-]);
+].concat(handyTrayIds);
+systray.writeConfig("hiddenItems", hiddenItems);
+systray.writeConfig("shownItems", systray.readConfig("shownItems", []).filter(function(id) {
+    return hiddenItems.indexOf(id) === -1;
+}));
+systray.writeConfig("showAllItems", false);
 systray.reloadConfig();
 print(previousOrder !== order ? "true" : "false");
 TRAY
