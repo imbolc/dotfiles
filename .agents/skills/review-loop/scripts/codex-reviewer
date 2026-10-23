@@ -1,6 +1,12 @@
 #!/bin/sh
 set -eu
 
+if [ ! -d "./var" ]; then
+    mkdir ./var
+    printf '%s\n' '*' >./var/.gitignore
+    printf '%s\n' '!*' >./var/.ignore
+fi
+
 mkdir -p ./var/review
 exec codex --sandbox read-only --model "$1" \
     -c "review_model=\"$1\"" \

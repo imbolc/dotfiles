@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 
-set -eux
+set -eu
+
+if [ -d "./var" ]; then
+    echo "./var folder already exists"
+    exit 1
+fi
 
 mkdir -p ./var
 printf '%s\n' '*' >./var/.gitignore
