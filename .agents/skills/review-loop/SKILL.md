@@ -12,7 +12,8 @@ Targets:
 - `commit` => `Review the last commit`
 - `repo` => `Review whole repo`
 
-Any other target is used as the review instruction.
+Any other target is used as the review instruction. Pass the expanded review
+instruction to the runner.
 
 Reviewer models:
 
@@ -36,7 +37,7 @@ loop:
 
   ```sh
   "<skill directory>/scripts/codex-reviewer" \
-      "<reviewer model>" "<reviewer reasoning effort>" "<target>"
+      "<reviewer model>" "<reviewer reasoning effort>" "<review instruction>"
   ```
 
 - Evaluate its review. For each valuable finding, assign a severity: high,

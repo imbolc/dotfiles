@@ -1,79 +1,10 @@
 #!/bin/sh
 set -eu
 
-usage() {
-    printf '%s\n' \
-        'Usage: codex-reviewer MODEL EFFORT TARGET' \
-        '       codex-reviewer reset' \
-        '       codex-reviewer record LABEL COUNT SEVERITY STREAK' >&2
-    exit 2
-}
-
-validate_field() {
-    case $1 in
-    '' | *[!A-Za-z0-9._:/+-]*) usage ;;
-    esac
-}
-
-validate_count() {
-    case $1 in
-    '' | *[!0-9]*) usage ;;
-    esac
-}
-
-review_dir=./var/review
-review_csv=$review_dir/result.csv
-
-case ${1-} in
-reset)
-    [ "$#" -eq 1 ] || usage
-    mkdir -p "$review_dir"
-    if [ -e "$review_csv" ] || [ -L "$review_csv" ]; then
-        unlink "$review_csv"
-    fi
-    printf '%s\n' 'timestamp,model,valuable_findings,highest_severity,streak' >"$review_csv"
-    ;;
-record)
-    [ "$#" -eq 5 ] || usage
-    validate_field "$2"
-    validate_count "$3"
-    case $4 in
-    high | medium | low | none) ;;
-    *) usage ;;
-    esac
-    validate_count "$5"
-    if [ "$3" -eq 0 ]; then
-        [ "$4" = none ] || usage
-    else
-        [ "$4" != none ] || usage
-    fi
-    if [ ! -f "$review_csv" ]; then
-        printf '%s\n' 'Run codex-reviewer reset before recording results' >&2
-        exit 2
-    fi
-    review_timestamp=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
-    printf '%s,%s,%s,%s,%s\n' "$review_timestamp" "$2" "$3" "$4" "$5" >>"$review_csv"
-    ;;
-*)
-    [ "$#" -eq 3 ] || usage
-    validate_field "$1"
-    validate_field "$2"
-    review_model=$1
-    review_effort=$2
-    case $3 in
-    branch) review_target='Review changes of the current branch' ;;
-    uncommitted) review_target='Review uncommitted changes' ;;
-    commit) review_target='Review the last commit' ;;
-    repo) review_target='Review whole repo' ;;
-    '') usage ;;
-    *) review_target=$3 ;;
-    esac
-    mkdir -p "$review_dir"
-    exec codex --sandbox read-only --model "$review_model" \
-        -c "review_model=\"$review_model\"" \
-        -c "model_reasoning_effort=\"$review_effort\"" review "
-$review_target
+mkdir -p ./var/review
+exec codex --sandbox read-only --model "$1" \
+    -c "review_model=\"$1\"" \
+    -c "model_reasoning_effort=\"$2\"" review "
+$3
 Do not run checks or tests, assume they all valid.
-" >"$review_dir/stdout" 2>"$review_dir/stderr"
-    ;;
-esac
+" >./var/review/stdout 2>./var/review/stderr
