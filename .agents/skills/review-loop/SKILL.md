@@ -5,7 +5,7 @@ description: Review in a loop
 
 # review-loop <target>
 
-Targets:
+Explicit target required, reject calls without a target. Possible targets:
 
 - `branch` => `Review changes of the current branch`
 - `uncommitted` => `Review uncommitted changes`
