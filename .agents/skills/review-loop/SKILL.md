@@ -3,13 +3,12 @@ name: review-loop
 description: Review in a loop
 ---
 
-# review-loop <target>
+# review-loop [target]
 
-Explicit target required, reject calls without a target. Possible targets:
+Possible targets:
 
-- `branch` => `Review changes of the current branch`
-- `uncommitted` => `Review uncommitted changes`
-- `commit` => `Review the last commit`
+- `branch` (default, use if no target provided) =>
+  `Review changes of the current branch`
 - `repo` => `Review whole repo`
 
 Any other target is used as the review instruction. Pass the expanded review
