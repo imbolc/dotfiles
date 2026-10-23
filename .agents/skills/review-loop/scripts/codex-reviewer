@@ -3,7 +3,7 @@ set -eu
 
 usage() {
     printf '%s\n' \
-        'Usage: codex-reviewer MODEL EFFORT' \
+        'Usage: codex-reviewer MODEL EFFORT TARGET' \
         '       codex-reviewer reset' \
         '       codex-reviewer record LABEL COUNT SEVERITY STREAK' >&2
     exit 2
@@ -55,17 +55,25 @@ record)
     printf '%s,%s,%s,%s,%s\n' "$review_timestamp" "$2" "$3" "$4" "$5" >>"$review_csv"
     ;;
 *)
-    [ "$#" -eq 2 ] || usage
+    [ "$#" -eq 3 ] || usage
     validate_field "$1"
     validate_field "$2"
     review_model=$1
     review_effort=$2
+    case $3 in
+    branch) review_target='Review changes of the current branch' ;;
+    uncommitted) review_target='Review uncommitted changes' ;;
+    commit) review_target='Review the last commit' ;;
+    repo) review_target='Review whole repo' ;;
+    '') usage ;;
+    *) review_target=$3 ;;
+    esac
     mkdir -p "$review_dir"
     exec codex --sandbox read-only --model "$review_model" \
         -c "review_model=\"$review_model\"" \
-        -c "model_reasoning_effort=\"$review_effort\"" review '
-Review changes of the current branch.
+        -c "model_reasoning_effort=\"$review_effort\"" review "
+$review_target
 Do not run checks or tests, assume they all valid.
-' >"$review_dir/stdout" 2>"$review_dir/stderr"
+" >"$review_dir/stdout" 2>"$review_dir/stderr"
     ;;
 esac
