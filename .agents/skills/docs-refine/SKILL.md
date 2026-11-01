@@ -1,15 +1,16 @@
 ---
 name: docs-refine
 description: >-
-  Review and edit Markdown documents using the technical-writing skill.
+  Refine Markdown documents using the global AGENTS.md writing rules.
   Accept a document path, or review all repository Markdown documents when no
   path is supplied. Use only when the user explicitly invokes docs-refine.
 ---
 
-# Docs Refine
+# docs-refine [document]
 
-Before every review, load and follow the
-[technical-writing skill](../technical-writing/SKILL.md).
+Before every review, read and follow the
+[Technical writing rules in the global AGENTS.md](../../AGENTS.md#technical-writing),
+together with applicable repository instructions and document conventions.
 
 ## Select documents
 
