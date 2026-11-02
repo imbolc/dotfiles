@@ -54,3 +54,6 @@ loop:
   - streak
 - Repeat until the streak reaches 3, then start the loop using the next reviewer
   model
+
+After the loop is finished, report it and ask if you should delete the
+`./var/review` folder.
