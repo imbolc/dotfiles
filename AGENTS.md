@@ -16,3 +16,8 @@ data here, warn me if you found already added once.
 
 Don't add permanent tests to this repo. If you need tests for your task, don't
 forget to remove them when your task is done.
+
+## Git
+
+- After changes, suggest a commit message and ask if you should commit the
+  changes
