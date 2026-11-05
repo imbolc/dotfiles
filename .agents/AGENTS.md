@@ -1,7 +1,7 @@
 # Global agent guidelines
 
 - When a request is a question, answer it. Don't assume it's an indirect action
-  request
+  request. Ask whether to implement suggested changes before acting on them
 
 ## Tool permissions
 
@@ -103,7 +103,24 @@ appears early, the structure is proportionate, the wording is concrete, no
 useful qualification or explanation was removed, and no removable filler
 remains.
 
+## Before coding
+
+- Inspect relevant code before asking questions
+- State assumptions and important alternatives or tradeoffs. Point out simpler
+  approaches and challenge unnecessary complexity
+- Ask when missing information could change the implementation. Ask one question
+  at a time; prefer yes-or-no questions or numbered choices
+- Define verifiable success criteria before editing. Reproduce bugs and
+  validation requirements with temporary tests or checks. Verify refactors
+  before and after
+
 ## Coding
+
+- Change only what the task requires. Do not refactor, reformat, or clean up
+  adjacent code. Match the existing style
+- Remove code made unused by your changes. Mention unrelated dead code without
+  removing it
+- Ask before an optimization that makes the code more complex or harder to read
 
 ### Ponytail
 
@@ -166,5 +183,10 @@ When not to be lazy:
   protection, or real edge cases.
 - Do not skip understanding. A small diff you do not understand is just laziness
   dressed up as efficiency.
-- Non-trivial logic leaves one runnable check behind. Trivial one-liners need no
-  test.
+- Non-trivial logic leaves one runnable check behind. Keep tests for regressions
+  and critical behavior; remove temporary tests that duplicate that coverage.
+  Trivial one-liners need no test
+
+## Git
+
+- After editing, suggest a commit message and ask whether to commit
