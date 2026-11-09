@@ -34,18 +34,18 @@ Don't proceed to the next section until the current plan is clear.
 
 Loop, processing one comment completely before moving to the next, so the
 integration progress isn't lost if you stop at any point. Update the plan before
-replacing the corresponding comment body.
+prefixing the corresponding comment body.
 
 - Read the first unprocessed comment
 - Leave comments that only report no new findings unchanged, and skip comments
   whose entire body is already a status marker
 - If the comment contains any new relevant findings that are within the issue's
-  scope - integrate them into the first message plan and replace the comment
-  body with `integrated into plan` text
-- If the comment contains no new findings replace its body with
-  `rejected: no new findings`
-- If the comment is out of the issue scope replace it body with
-  `rejected: out of scope`. Ask yourself - why did the commenter didn't
+  scope - integrate them into the first message plan and prefix the comment
+  body with `[integrated into plan]` text
+- If the comment contains no new findings prefix its body with
+  `[rejected: no new findings]`
+- If the comment is out of the issue scope prefix it body with
+  `[rejected: out of scope]`. Ask yourself - why did the commenter didn't
   understand the scope? If you find the issue scope isn't rigid enough update
   its description in the first issue message.
 - Loop until there's no unprocessed comments left
