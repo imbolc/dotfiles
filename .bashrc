@@ -38,6 +38,7 @@ alias la='ls -ahlF'
 alias l='ls -CF'
 
 alias untar='tar -xvf'
+alias dysk="dysk -f '!mount=/boot'"
 
 # shellcheck source=/dev/null
 if [ -f ~/.bash_aliases ]; then
@@ -112,3 +113,10 @@ fi
 if [ -r "$HOME/.bash_secrets.sh" ]; then
     . "$HOME/.bash_secrets.sh"
 fi
+
+# Added by the Hunk installer (https://hunk.dev)
+export PATH='/home/imbolc/.hunk/bin':"$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/imbolc/.local/bin:$PATH"

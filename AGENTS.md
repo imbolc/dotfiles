@@ -12,6 +12,12 @@ data here, warn me if you found already added once.
 - Use `.agents/skills` folder for agents skills instead of an agent specific
   folder
 
+## ./agents/skills
+
+This folder is read by different agents so the skills should be written using
+generic, agent agnostic, instructions ("prompt the user", "spawn a subagent",
+"read the file")
+
 ## Tests
 
 Don't add permanent tests to this repo. If you need tests for your task, don't

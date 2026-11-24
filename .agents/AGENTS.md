@@ -121,6 +121,8 @@ remains.
 - Remove code made unused by your changes. Mention unrelated dead code without
   removing it
 - Ask before an optimization that makes the code more complex or harder to read
+- After finishing the change make sure a branch (or a commit if in main) diff is
+  minimal
 
 ### Ponytail
 
